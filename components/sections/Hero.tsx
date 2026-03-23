@@ -1,7 +1,6 @@
 "use client"
 
 import { useRef } from "react"
-import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
 import TextReveal from "@/components/ui/TextReveal"
 import FadeIn from "@/components/ui/FadeIn"
@@ -24,30 +23,10 @@ export default function Hero() {
       aria-label="Presentazione Dr. Alessandro Federico"
     >
 
-      {/* Foto — solo desktop, metà destra assoluta */}
-      <div className="hidden md:block md:absolute md:inset-y-0 md:right-0 md:w-[48%] overflow-hidden">
-        <motion.div style={{ scale: imageScale }} className="absolute inset-0">
-          <Image
-            src="/images/foto-dottore.png"
-            alt="Dr. Alessandro Federico, Dermatologo e Medico Estetico"
-            fill
-            sizes="48vw"
-            quality={100}
-            priority
-            className="object-cover object-top"
-          />
-        </motion.div>
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, #ffffff 0%, #ffffff 15%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.3) 70%, transparent 100%)" }}
-          aria-hidden="true"
-        />
-      </div>
-
       {/* Contenuto testuale — centrato su mobile, a sinistra su desktop */}
       <motion.div
         style={{ y: contentY }}
-        className="relative z-10 flex flex-col justify-center w-full md:w-[58%] px-6 md:px-10 lg:px-16 py-16 md:py-28 text-center md:text-left"
+        className="relative z-10 flex flex-col justify-center w-full px-6 md:px-10 lg:px-16 py-16 md:py-28 text-center md:text-left"
       >
         {/* Tag */}
         <div className="flex items-center justify-center md:justify-start gap-3 mb-8">

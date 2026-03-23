@@ -115,7 +115,7 @@ alessandro-federico-website/
 │   ├── contatti/
 │   │   └── page.tsx            ✅ Hero, form + colonna info/orari, layout 2 colonne desktop
 │   ├── prenota/
-│   │   └── page.tsx            ⏳ BLOCCO 10 — embed/redirect prenotazione
+│   │   └── page.tsx            ✅ Hero + 2 card (telefono/email) + orari + CTA. Pronta per embed iframe quando si sceglie la piattaforma
 │   ├── skin/
 │   │   ├── page.tsx            ⏳ BLOCCO 11 — lista articoli blog
 │   │   └── [slug]/page.tsx     ⏳ BLOCCO 11 — articolo singolo
@@ -178,7 +178,7 @@ alessandro-federico-website/
 | 7 | Pagina Recensioni | ✅ Completato | Carousel auto-scroll 5.5s, swipe mobile, frecce desktop, dots |
 | 8 | Pagina Prima e Dopo | ✅ Completato | Griglia filtrabile (Tutti/Derm./Med.Est.), card before/after side-by-side, placeholder foto, nota etica |
 | 9 | Pagina Contatti + Server Action | ✅ Completato | Form Resend, pre-selezione area via URL param (?area=dermatologia), orari, info contatto |
-| 10 | Pagina Prenota | ⏳ Da fare | Dipende dalla piattaforma scelta (Doctolib / Calendly / custom) |
+| 10 | Pagina Prenota | ✅ Completato | Card telefono + form contatti + orari. Variabile BOOKING_URL pronta per iframe Doctolib/Calendly |
 | 11 | Blog Skin | ⏳ Da fare | Lista articoli + pagina singolo articolo con slug dinamico |
 | 12 | SEO + Favicon + Metadata | ⏳ Parziale | Metadata base su ogni pagina ✅; manca JSON-LD structured data |
 | 13 | Polish finale | ⏳ Da fare | Build check, responsive test, accessibilità, deploy Vercel |
@@ -186,10 +186,6 @@ alessandro-federico-website/
 ---
 
 ## DA FARE — PROSSIMI STEP
-
-### BLOCCO 10 — Prenota
-- Decidere piattaforma (Doctolib / MioDottore / Calendly / embed custom)
-- `app/prenota/page.tsx` con embed o redirect
 
 ### BLOCCO 11 — Blog Skin
 - Struttura dati (`data/blog.ts` o MDX)
