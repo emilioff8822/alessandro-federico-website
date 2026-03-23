@@ -28,11 +28,11 @@ export default function Hero() {
       <div className="hidden md:block md:absolute md:inset-y-0 md:right-0 md:w-[48%] overflow-hidden">
         <motion.div style={{ scale: imageScale }} className="absolute inset-0">
           <Image
-            src="/images/foto-hero.png"
+            src="/images/foto-dottore.png"
             alt="Dr. Alessandro Federico, Dermatologo e Medico Estetico"
             fill
             sizes="48vw"
-            quality={95}
+            quality={100}
             priority
             className="object-cover object-top"
           />
