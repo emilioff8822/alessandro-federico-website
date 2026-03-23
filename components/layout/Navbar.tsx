@@ -38,7 +38,7 @@ export default function Navbar() {
           <Link
             href="/"
             onClick={() => setMenuOpen(false)}
-            className="group flex flex-col leading-tight"
+            className="group flex flex-col leading-tight py-2"
             aria-label="Homepage Dr. Alessandro Federico"
           >
             <span className="font-heading text-[15px] text-white tracking-wide group-hover:text-white/90 transition-colors duration-300">
