@@ -51,12 +51,13 @@ export default function Hero() {
           <TextReveal delay={0.7}>Dr. Alessandro</TextReveal>
           <br />
           <TextReveal delay={1.1}>Federico</TextReveal>
+          <span className="sr-only"> — Dermatologo e Medico Estetico a Milano</span>
         </h1>
 
         {/* Descrizione */}
         <FadeIn delay={1.9}>
           <p className="font-sans text-base md:text-lg text-muted leading-[1.8] max-w-sm mx-auto md:mx-0 mb-8">
-            Specialista in dermatologia clinica e medicina estetica.
+            Specialista in dermatologia clinica e medicina estetica a Milano.
             Un approccio integrato per la salute e il benessere della pelle.
           </p>
         </FadeIn>

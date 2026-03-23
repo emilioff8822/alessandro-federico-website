@@ -4,16 +4,17 @@ import Servizi from "@/components/sections/Servizi"
 import CTASection from "@/components/sections/CTASection"
 import Divider from "@/components/ui/Divider"
 import PageTransition from "@/components/providers/PageTransition"
-import { siteConfig } from "@/data/siteConfig"
 
 export const metadata: Metadata = {
-  title: siteConfig.seoTitle,
-  description: siteConfig.seoDescription,
-  alternates: { canonical: siteConfig.url },
+  title: "Dr. Alessandro Federico | Dermatologo Milano — Medicina Estetica",
+  description:
+    "Dermatologo e medico estetico a Milano. Visita dermatologica, dermatoscopia, tricologia, filler, botox e peeling. Prenota una visita con il Dr. Federico.",
+  alternates: { canonical: "https://www.alessandrofederico.it" },
   openGraph: {
-    title: siteConfig.seoTitle,
-    description: siteConfig.seoDescription,
-    url: siteConfig.url,
+    title: "Dr. Alessandro Federico | Dermatologo e Medico Estetico Milano",
+    description:
+      "Specialista in dermatologia e medicina estetica a Milano. Prenota una visita.",
+    url: "https://www.alessandrofederico.it",
   },
 }
 

@@ -4,6 +4,7 @@ import "./globals.css"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import SmoothScroll from "@/components/providers/SmoothScroll"
+import StructuredData from "@/components/seo/StructuredData"
 import { siteConfig } from "@/data/siteConfig"
 
 const dmSerif = DM_Serif_Display({
@@ -29,35 +30,37 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.seoTitle,
-    template: `%s | Dr. Alessandro Federico`,
+    default: "Dr. Alessandro Federico | Dermatologo Milano — Medicina Estetica",
+    template: "%s | Dr. Alessandro Federico",
   },
-  description: siteConfig.seoDescription,
+  description:
+    "Dermatologo e medico estetico a Milano. Visita dermatologica, dermatoscopia, tricologia, filler, botox e peeling. Prenota una visita con il Dr. Federico.",
   keywords: [
+    "dermatologo Milano",
+    "medico estetico Milano",
+    "dermatologia Milano",
+    "filler Milano",
+    "botox Milano",
     "dermatologo",
-    "medicina estetica",
-    "dermatologia clinica",
-    "filler",
-    "botox",
-    "peeling",
-    "mesoterapia",
-    "biolifting",
-    "tricologia",
+    "medicina estetica Milano",
+    "tricologia Milano",
+    "dermatoscopia Milano",
+    "peeling Milano",
     "Dr. Alessandro Federico",
+    "dermatologo Italia",
   ],
   authors: [{ name: "Dr. Alessandro Federico" }],
   openGraph: {
     type: "website",
     locale: "it_IT",
     url: siteConfig.url,
-    siteName: siteConfig.studio,
-    title: siteConfig.seoTitle,
-    description: siteConfig.seoDescription,
+    siteName: "Dr. Alessandro Federico — Dermatologo Milano",
+    title: "Dr. Alessandro Federico | Dermatologo e Medico Estetico Milano",
+    description:
+      "Specialista in dermatologia e medicina estetica a Milano. Prenota una visita.",
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.seoTitle,
-    description: siteConfig.seoDescription,
   },
   alternates: {
     canonical: siteConfig.url,
@@ -65,11 +68,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    "max-image-preview": "large" as const,
+    "max-snippet": -1,
     googleBot: {
       index: true,
       follow: true,
       "max-video-preview": -1,
-      "max-image-preview": "large",
+      "max-image-preview": "large" as const,
       "max-snippet": -1,
     },
   },
@@ -83,6 +88,7 @@ export default function RootLayout({
   return (
     <html lang="it" dir="ltr" className={`${dmSerif.variable} ${dmSans.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
+        <StructuredData />
         <Navbar />
         <SmoothScroll>
           <div className="pt-[68px]">

@@ -6,17 +6,18 @@ import TextReveal from "@/components/ui/TextReveal"
 import SectionLabel from "@/components/ui/SectionLabel"
 import Divider from "@/components/ui/Divider"
 import CTAButton from "@/components/ui/CTAButton"
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd"
 import { siteConfig } from "@/data/siteConfig"
 
 export const metadata: Metadata = {
-  title: "Prenota una Visita",
+  title: "Prenota una Visita | Dr. Alessandro Federico — Dermatologo Milano",
   description:
-    "Prenota una visita con il Dr. Alessandro Federico, specialista in Dermatologia e Medicina Estetica. Disponibile su iDoctors, Santagostino e Cup Solidale.",
+    "Prenota online una visita con il Dr. Alessandro Federico su iDoctors, Santagostino o Cup Solidale. Dermatologo a Milano.",
   alternates: { canonical: "https://www.alessandrofederico.it/prenota" },
   openGraph: {
-    title: "Prenota | Dr. Alessandro Federico",
+    title: "Prenota una Visita | Dr. Alessandro Federico — Dermatologo Milano",
     description:
-      "Prenota la tua visita dermatologica o estetica con il Dr. Alessandro Federico.",
+      "Prenota la tua visita dermatologica o estetica con il Dr. Alessandro Federico a Milano.",
     url: "https://www.alessandrofederico.it/prenota",
   },
 }
@@ -69,6 +70,10 @@ const piattaforme = [
 export default function PrenotaPage() {
   return (
     <PageTransition>
+      <BreadcrumbJsonLd items={[
+        { name: "Home", url: "https://www.alessandrofederico.it" },
+        { name: "Prenota", url: "https://www.alessandrofederico.it/prenota" },
+      ]} />
       <main>
 
         {/* ── Hero ── */}

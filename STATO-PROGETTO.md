@@ -97,29 +97,29 @@ Sito web professionale per il **Dr. Alessandro Federico**, specialista in
 ```
 alessandro-federico-website/
 ├── app/
-│   ├── layout.tsx              ✅ Font DM Serif Display + DM Sans, Navbar, Footer, SmoothScroll
-│   ├── globals.css             ✅ Variabili CSS brand, scrollbar, selezione testo
-│   ├── page.tsx                ✅ Homepage: Hero → Divider → Servizi → CTASection
+│   ├── layout.tsx              ✅ Font, Navbar, Footer, SmoothScroll, StructuredData, metadataBase, title template
+│   ├── globals.css             ✅ Variabili CSS brand, scrollbar, selezione testo, prose-skin blog
+│   ├── page.tsx                ✅ Homepage: Hero → Divider → Servizi → CTASection — metadata con keyword Milano
+│   ├── sitemap.ts              ✅ Sitemap dinamica (pagine statiche + blog)
+│   ├── robots.ts               ✅ robots.txt con allow/disallow e link sitemap
+│   ├── manifest.ts             ✅ Web App Manifest (PWA-ready)
 │   ├── icon.png                ✅ Favicon (copia di logo.png)
 │   ├── apple-icon.png          ✅ Apple touch icon
 │   ├── chi-sono/
-│   │   └── page.tsx            ✅ Foto + bio, 3 sezioni filosofia con sfondi alternati, CTA
+│   │   └── page.tsx            ✅ Foto + bio, 3 sezioni filosofia, BreadcrumbJsonLd
 │   ├── specialita/
-│   │   └── page.tsx            ✅ Pagina completa, palette a scacchiera Dermatologia/Med. Estetica
-│   └── recensioni/
-│       └── page.tsx            ✅ Hero + Carousel + nota privacy + CTA
-│
+│   │   └── page.tsx            ✅ Palette a scacchiera Derm./Med.Est., BreadcrumbJsonLd
+│   ├── recensioni/
+│   │   └── page.tsx            ✅ Carousel + nota privacy + CTA, BreadcrumbJsonLd
 │   ├── prima-e-dopo/
-│   │   └── page.tsx            ✅ Hero + gallery filtrabile + nota etica + CTA
-│   ── DA CREARE ──
+│   │   └── page.tsx            ✅ Gallery filtrabile + nota etica, BreadcrumbJsonLd
 │   ├── contatti/
-│   │   └── page.tsx            ✅ Hero, form + colonna info/orari, layout 2 colonne desktop
+│   │   └── page.tsx            ✅ Form + tag <address> semantico, BreadcrumbJsonLd
 │   ├── prenota/
-│   │   └── page.tsx            ✅ Hero + 2 card (telefono/email) + orari + CTA. Pronta per embed iframe quando si sceglie la piattaforma
+│   │   └── page.tsx            ✅ 3 piattaforme + contatti + orari, BreadcrumbJsonLd
 │   ├── skin/
-│   │   ├── page.tsx            ⏳ BLOCCO 11 — lista articoli blog
-│   │   └── [slug]/page.tsx     ⏳ BLOCCO 11 — articolo singolo
-│   ├── structured-data.tsx     ⏳ BLOCCO 12 — JSON-LD Schema.org
+│   │   ├── page.tsx            ✅ Lista articoli blog, BreadcrumbJsonLd
+│   │   └── [slug]/page.tsx     ✅ Articolo SSG + BlogPosting JSON-LD + Author Box E-E-A-T
 │   └── actions/
 │       └── contact.ts          ✅ Server Action Resend con template email brand Federico
 │
@@ -140,8 +140,11 @@ alessandro-federico-website/
 │   │   ├── SectionLabel.tsx    ✅ Trattino corto + testo uppercase accent
 │   │   ├── SpotlightCard.tsx   ✅ Card con spotlight radiale mouse-tracking
 │   │   └── Divider.tsx         ✅ Separatore sfumato
-│   │   ── DA CREARE ──
 │   │   └── ContactForm.tsx     ✅ Form con area (Derm/Med.Est/Altro), Suspense, stati idle/pending/success/error
+│   ├── seo/
+│   │   ├── JsonLd.tsx           ✅ Helper generico per script JSON-LD
+│   │   ├── BreadcrumbJsonLd.tsx ✅ Breadcrumb strutturato per pagine interne
+│   │   └── StructuredData.tsx   ✅ IndividualPhysician + PhysiciansOffice + WebSite (Schema.org v24+)
 │   └── providers/
 │       ├── PageTransition.tsx  ✅ Fade + slide (initial opacity:1 per compatibilità mobile)
 │       └── SmoothScroll.tsx    ✅ Lenis smooth scroll
@@ -150,7 +153,8 @@ alessandro-federico-website/
 │   ├── siteConfig.ts           ✅ Nome, tel, email, nav links, orari
 │   ├── servizi.ts              ✅ 2 macro-aree, 10 sotto-servizi con dettagli e punti
 │   ├── testimonianze.ts        ✅ 8 recensioni con nome, città, trattamento, stelle, testo
-│   └── prima-e-dopo.ts         ✅ 6 casi con titolo, trattamento, categoria, descrizione, slot foto
+│   ├── prima-e-dopo.ts         ✅ 6 casi con titolo, trattamento, categoria, descrizione, slot foto
+│   └── blog.ts                 ✅ 2 articoli con slug, titolo, categoria, abstract, corpo HTML, tags
 │
 ├── public/
 │   └── images/
@@ -179,22 +183,13 @@ alessandro-federico-website/
 | 8 | Pagina Prima e Dopo | ✅ Completato | Griglia filtrabile (Tutti/Derm./Med.Est.), card before/after side-by-side, placeholder foto, nota etica |
 | 9 | Pagina Contatti + Server Action | ✅ Completato | Form Resend, pre-selezione area via URL param (?area=dermatologia), orari, info contatto |
 | 10 | Pagina Prenota | ✅ Completato | Card telefono + form contatti + orari. Variabile BOOKING_URL pronta per iframe Doctolib/Calendly |
-| 11 | Blog Skin | ⏳ Da fare | Lista articoli + pagina singolo articolo con slug dinamico |
-| 12 | SEO + Favicon + Metadata | ⏳ Parziale | Metadata base su ogni pagina ✅; manca JSON-LD structured data |
+| 11 | Blog Skin | ✅ Completato | `data/blog.ts` con 2 articoli; lista su `/skin`; articolo singolo SSG su `/skin/[slug]`; prose-skin CSS per typography |
+| 12 | SEO Completo (YMYL) | ✅ Completato | JSON-LD: IndividualPhysician + PhysiciansOffice + WebSite + BreadcrumbList + BlogPosting. Sitemap, robots.txt, manifest. Metadata con keyword locali "Milano" su ogni pagina. Author box E-E-A-T nel blog. Tag `<address>` semantico nei contatti. Immagini rinominate SEO-friendly. h1 con keyword nella Hero |
 | 13 | Polish finale | ⏳ Da fare | Build check, responsive test, accessibilità, deploy Vercel |
 
 ---
 
 ## DA FARE — PROSSIMI STEP
-
-### BLOCCO 11 — Blog Skin
-- Struttura dati (`data/blog.ts` o MDX)
-- Lista articoli (`app/skin/page.tsx`)
-- Articolo singolo (`app/skin/[slug]/page.tsx`)
-
-### BLOCCO 12 — SEO completa
-- `app/structured-data.tsx` — JSON-LD: `MedicalBusiness`, `Person`, `WebSite`
-- Verificare canonical, openGraph, favicon su tutte le pagine
 
 ### BLOCCO 13 — Polish
 - `npx next build` senza errori
@@ -207,7 +202,9 @@ alessandro-federico-website/
 
 | Servizio | Stato | Azione necessaria |
 |---|---|---|
-| Resend | ⏳ API key placeholder | Creare account su resend.com, ottenere API key, aggiungerla a `.env.local` e a Vercel |
-| Piattaforma prenotazione | ⏳ Non decisa | Il cliente deve scegliere tra Doctolib, MioDottore, Calendly o soluzione custom |
-| Dominio | ⏳ Non configurato | Acquistare dominio (es. `alessandrofederico.it`) e collegarlo a Vercel |
+| Resend | ✅ Configurato | Account dedicato su Resend, dominio `alessandrofederico.it` verificato, DNS su Aruba (DKIM, SPF, DMARC, MX). Mail a `alfederico89@gmail.com` |
+| Piattaforme prenotazione | ✅ Configurate | iDoctors `/medico/16985/0`, Santagostino `/persone/alessandro-federico`, Cup Solidale `/medico/e53e...` |
+| Dominio | ✅ Acquistato | `alessandrofederico.it` su Aruba — da collegare a Vercel al momento del deploy |
 | Vercel | ⏳ Non configurato | Collegare il repository GitHub a Vercel per il deploy automatico |
+| Google Business Profile | ⏳ Da creare | Fattore #1 per il Local Pack "dermatologo Milano" — creare/rivendicare su business.google.com |
+| Google Search Console | ⏳ Da configurare | Registrare il sito, inviare la sitemap, monitorare errori |

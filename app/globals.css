@@ -82,3 +82,14 @@ body {
     transition: opacity 0.1s ease;
   }
 }
+
+/* ── Stili articoli blog (prose-skin) ── */
+.prose-skin p          { margin-bottom: 1.4em; }
+.prose-skin h2         { font-family: var(--font-heading); font-size: 1.5rem; color: #111827; margin-top: 2em; margin-bottom: 0.6em; line-height: 1.2; }
+.prose-skin h3         { font-family: var(--font-heading); font-size: 1.2rem; color: #111827; margin-top: 1.6em; margin-bottom: 0.5em; }
+.prose-skin ul         { list-style: none; padding: 0; margin-bottom: 1.4em; }
+.prose-skin ul li      { position: relative; padding-left: 1.4em; margin-bottom: 0.5em; color: #4B5563; }
+.prose-skin ul li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; border-radius: 50%; background: #7AAEC9; }
+.prose-skin strong     { font-weight: 600; color: #111827; }
+.prose-skin a          { color: #3A8A9E; text-decoration: underline; text-decoration-color: rgba(58,138,158,0.3); }
+.prose-skin a:hover    { text-decoration-color: #3A8A9E; }

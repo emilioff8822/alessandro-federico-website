@@ -7,17 +7,18 @@ import TextReveal from "@/components/ui/TextReveal"
 import SectionLabel from "@/components/ui/SectionLabel"
 import Divider from "@/components/ui/Divider"
 import ContactForm from "@/components/ui/ContactForm"
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd"
 import { siteConfig } from "@/data/siteConfig"
 
 export const metadata: Metadata = {
-  title: "Contatti",
+  title: "Contatti e Prenotazione | Dr. Alessandro Federico — Dermatologo Milano",
   description:
-    "Contatta il Dr. Alessandro Federico, specialista in Dermatologia e Medicina Estetica. Scrivi un messaggio per richiedere una visita o informazioni sui trattamenti.",
+    "Contatta lo studio dermatologico del Dr. Alessandro Federico a Milano. Prenota una visita dermatologica o un trattamento estetico.",
   alternates: { canonical: "https://www.alessandrofederico.it/contatti" },
   openGraph: {
-    title: "Contatti | Dr. Alessandro Federico",
+    title: "Contatti | Dr. Alessandro Federico — Dermatologo Milano",
     description:
-      "Scrivi al Dr. Alessandro Federico per prenotare una visita dermatologica o estetica.",
+      "Scrivi al Dr. Alessandro Federico per prenotare una visita dermatologica o estetica a Milano.",
     url: "https://www.alessandrofederico.it/contatti",
   },
 }
@@ -46,6 +47,10 @@ const infoContatti = [
 export default function ContattiPage() {
   return (
     <PageTransition>
+      <BreadcrumbJsonLd items={[
+        { name: "Home", url: "https://www.alessandrofederico.it" },
+        { name: "Contatti", url: "https://www.alessandrofederico.it/contatti" },
+      ]} />
       <main>
 
         {/* ── Hero ── */}
@@ -109,7 +114,7 @@ export default function ContattiPage() {
 
                 {/* Contatti */}
                 <FadeIn delay={0.2}>
-                  <div>
+                  <address className="not-italic">
                     <h3 className="font-heading text-xl text-text mb-5">Dove trovarmi</h3>
                     <div className="flex flex-col gap-4">
                       {infoContatti.map((item) => (
@@ -138,7 +143,7 @@ export default function ContattiPage() {
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </address>
                 </FadeIn>
 
                 {/* Orari */}

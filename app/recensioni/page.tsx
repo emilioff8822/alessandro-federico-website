@@ -7,16 +7,17 @@ import SectionLabel from "@/components/ui/SectionLabel"
 import CTAButton from "@/components/ui/CTAButton"
 import Divider from "@/components/ui/Divider"
 import RecensioniCarousel from "@/components/sections/RecensioniCarousel"
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd"
 
 export const metadata: Metadata = {
-  title: "Recensioni",
+  title: "Recensioni Pazienti | Dr. Alessandro Federico — Dermatologo Milano",
   description:
-    "Leggi le recensioni dei pazienti del Dr. Alessandro Federico, specialista in Dermatologia e Medicina Estetica. Testimonianze reali di chi si è affidato alle sue cure.",
+    "Leggi le recensioni dei pazienti del Dr. Alessandro Federico, dermatologo a Milano. Testimonianze reali di chi si è affidato alle sue cure in dermatologia e medicina estetica.",
   alternates: { canonical: "https://www.alessandrofederico.it/recensioni" },
   openGraph: {
-    title: "Recensioni | Dr. Alessandro Federico",
+    title: "Recensioni Pazienti | Dr. Alessandro Federico — Dermatologo Milano",
     description:
-      "Le esperienze dei miei pazienti, in dermatologia clinica e medicina estetica.",
+      "Le esperienze dei pazienti del Dr. Federico, in dermatologia clinica e medicina estetica a Milano.",
     url: "https://www.alessandrofederico.it/recensioni",
   },
 }
@@ -24,6 +25,10 @@ export const metadata: Metadata = {
 export default function RecensioniPage() {
   return (
     <PageTransition>
+      <BreadcrumbJsonLd items={[
+        { name: "Home", url: "https://www.alessandrofederico.it" },
+        { name: "Recensioni", url: "https://www.alessandrofederico.it/recensioni" },
+      ]} />
       <main>
 
         {/* ── Hero ── */}

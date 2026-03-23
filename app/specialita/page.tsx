@@ -5,12 +5,19 @@ import SectionLabel from "@/components/ui/SectionLabel"
 import FadeIn from "@/components/ui/FadeIn"
 import CTAButton from "@/components/ui/CTAButton"
 import PageTransition from "@/components/providers/PageTransition"
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd"
 
 export const metadata: Metadata = {
-  title: "Specialità",
+  title: "Specialità | Dermatologia e Medicina Estetica — Dr. Federico Milano",
   description:
-    "Dermatologia Clinica e Medicina Estetica: scopri tutti i trattamenti del Dr. Alessandro Federico. Filler, botox, peeling, tricologia, dermatoscopia e molto altro.",
+    "Dermatologia clinica, tricologia, dermatoscopia, filler, botox, peeling e mesoterapia. Tutti i servizi del Dr. Alessandro Federico a Milano.",
   alternates: { canonical: "https://www.alessandrofederico.it/specialita" },
+  openGraph: {
+    title: "Specialità | Dermatologia e Medicina Estetica — Dr. Federico Milano",
+    description:
+      "Tutti i trattamenti dermatologici e di medicina estetica del Dr. Alessandro Federico a Milano.",
+    url: "https://www.alessandrofederico.it/specialita",
+  },
 }
 
 const areaThemes = {
@@ -49,6 +56,10 @@ const areaThemes = {
 export default function SpecialitaPage() {
   return (
     <PageTransition>
+      <BreadcrumbJsonLd items={[
+        { name: "Home", url: "https://www.alessandrofederico.it" },
+        { name: "Specialità", url: "https://www.alessandrofederico.it/specialita" },
+      ]} />
       <main>
 
         {/* ── Hero ── */}

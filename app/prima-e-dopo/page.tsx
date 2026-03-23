@@ -7,16 +7,17 @@ import SectionLabel from "@/components/ui/SectionLabel"
 import CTAButton from "@/components/ui/CTAButton"
 import Divider from "@/components/ui/Divider"
 import PrimaEDopoGallery from "@/components/sections/PrimaEDopoGallery"
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd"
 
 export const metadata: Metadata = {
-  title: "Prima e Dopo",
+  title: "Prima e Dopo | Risultati Trattamenti — Dr. Federico Milano",
   description:
-    "Guarda i risultati reali dei trattamenti del Dr. Alessandro Federico in Dermatologia e Medicina Estetica. Fotografie prima e dopo con il consenso dei pazienti.",
+    "Guarda i risultati reali dei trattamenti del Dr. Alessandro Federico in dermatologia e medicina estetica a Milano. Fotografie prima e dopo con il consenso dei pazienti.",
   alternates: { canonical: "https://www.alessandrofederico.it/prima-e-dopo" },
   openGraph: {
-    title: "Prima e Dopo | Dr. Alessandro Federico",
+    title: "Prima e Dopo | Risultati Trattamenti — Dr. Federico Milano",
     description:
-      "Risultati clinici ed estetici documentati. Dermatologia e Medicina Estetica.",
+      "Risultati clinici ed estetici documentati. Dermatologia e Medicina Estetica a Milano.",
     url: "https://www.alessandrofederico.it/prima-e-dopo",
   },
 }
@@ -24,6 +25,10 @@ export const metadata: Metadata = {
 export default function PrimaEDopoPage() {
   return (
     <PageTransition>
+      <BreadcrumbJsonLd items={[
+        { name: "Home", url: "https://www.alessandrofederico.it" },
+        { name: "Prima e Dopo", url: "https://www.alessandrofederico.it/prima-e-dopo" },
+      ]} />
       <main>
 
         {/* ── Hero ── */}

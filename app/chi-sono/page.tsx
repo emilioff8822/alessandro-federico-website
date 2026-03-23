@@ -7,16 +7,17 @@ import TextReveal from "@/components/ui/TextReveal"
 import SectionLabel from "@/components/ui/SectionLabel"
 import CTAButton from "@/components/ui/CTAButton"
 import Divider from "@/components/ui/Divider"
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd"
 
 export const metadata: Metadata = {
-  title: "Chi Sono",
+  title: "Chi è il Dr. Alessandro Federico | Dermatologo Milano",
   description:
-    "Conosci il Dr. Alessandro Federico, specialista in Dermatologia e Medicina Estetica. Scopri la sua formazione, la sua filosofia di cura e il suo approccio integrato.",
+    "Scopri il percorso professionale del Dr. Alessandro Federico. Medico specialista in dermatologia e venereologia, esperto in medicina estetica a Milano.",
   alternates: { canonical: "https://www.alessandrofederico.it/chi-sono" },
   openGraph: {
-    title: "Chi Sono | Dr. Alessandro Federico",
+    title: "Chi è il Dr. Alessandro Federico | Dermatologo Milano",
     description:
-      "Dermatologo e medico estetico. Un approccio integrato per la salute e il benessere della pelle.",
+      "Dermatologo e medico estetico a Milano. Un approccio integrato per la salute e il benessere della pelle.",
     url: "https://www.alessandrofederico.it/chi-sono",
   },
 }
@@ -48,6 +49,10 @@ const concetti = [
 export default function ChiSonoPage() {
   return (
     <PageTransition>
+      <BreadcrumbJsonLd items={[
+        { name: "Home", url: "https://www.alessandrofederico.it" },
+        { name: "Chi Sono", url: "https://www.alessandrofederico.it/chi-sono" },
+      ]} />
       <main>
 
         {/* ── Hero — Foto + Bio ── */}
@@ -61,8 +66,8 @@ export default function ChiSonoPage() {
                   <div className="absolute -top-3 -left-3 w-full h-full border border-accent/20 rounded-sm pointer-events-none" />
                   <div className="relative overflow-hidden rounded-sm">
                     <Image
-                      src="/images/foto-dottore.png"
-                      alt="Dr. Alessandro Federico, Dermatologo e Medico Estetico"
+                      src="/images/dr-alessandro-federico-dermatologo-milano.png"
+                      alt="Dr. Alessandro Federico, dermatologo e medico estetico a Milano"
                       width={960}
                       height={1280}
                       quality={100}
