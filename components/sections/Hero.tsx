@@ -39,7 +39,7 @@ export default function Hero() {
         </motion.div>
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, #ffffff 0%, transparent 35%)" }}
+          style={{ background: "linear-gradient(to right, #ffffff 0%, #ffffff 15%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.3) 70%, transparent 100%)" }}
           aria-hidden="true"
         />
       </div>

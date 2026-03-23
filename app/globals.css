@@ -36,18 +36,6 @@ body {
   overflow-x: hidden;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse at 70% 0%,
-    rgba(122, 174, 201, 0.04) 0%,
-    transparent 60%
-  );
-}
 
 .link-hover {
   position: relative;
@@ -89,8 +77,8 @@ body::before {
 * { -webkit-tap-highlight-color: transparent; }
 
 @media (hover: none) and (pointer: coarse) {
-  button:active, a:active {
-    transform: scale(0.97);
-    transition: transform 0.1s ease;
+  a:active {
+    opacity: 0.85;
+    transition: opacity 0.1s ease;
   }
 }
