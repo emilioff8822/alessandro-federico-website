@@ -113,7 +113,7 @@ alessandro-federico-website/
 │   │   └── page.tsx            ✅ Hero + gallery filtrabile + nota etica + CTA
 │   ── DA CREARE ──
 │   ├── contatti/
-│   │   └── page.tsx            ⏳ BLOCCO 9 — form + orari
+│   │   └── page.tsx            ✅ Hero, form + colonna info/orari, layout 2 colonne desktop
 │   ├── prenota/
 │   │   └── page.tsx            ⏳ BLOCCO 10 — embed/redirect prenotazione
 │   ├── skin/
@@ -121,7 +121,7 @@ alessandro-federico-website/
 │   │   └── [slug]/page.tsx     ⏳ BLOCCO 11 — articolo singolo
 │   ├── structured-data.tsx     ⏳ BLOCCO 12 — JSON-LD Schema.org
 │   └── actions/
-│       └── contact.ts          ⏳ BLOCCO 9 — Server Action Resend
+│       └── contact.ts          ✅ Server Action Resend con template email brand Federico
 │
 ├── components/
 │   ├── layout/
@@ -141,7 +141,7 @@ alessandro-federico-website/
 │   │   ├── SpotlightCard.tsx   ✅ Card con spotlight radiale mouse-tracking
 │   │   └── Divider.tsx         ✅ Separatore sfumato
 │   │   ── DA CREARE ──
-│   │   └── ContactForm.tsx     ⏳ BLOCCO 9 — form con useSearchParams + Suspense
+│   │   └── ContactForm.tsx     ✅ Form con area (Derm/Med.Est/Altro), Suspense, stati idle/pending/success/error
 │   └── providers/
 │       ├── PageTransition.tsx  ✅ Fade + slide (initial opacity:1 per compatibilità mobile)
 │       └── SmoothScroll.tsx    ✅ Lenis smooth scroll
@@ -177,7 +177,7 @@ alessandro-federico-website/
 | 6 | Pagina Chi Sono | ✅ Completato | Foto + bio, 3 sezioni con sfondi alternati, Scarica CV, CTA |
 | 7 | Pagina Recensioni | ✅ Completato | Carousel auto-scroll 5.5s, swipe mobile, frecce desktop, dots |
 | 8 | Pagina Prima e Dopo | ✅ Completato | Griglia filtrabile (Tutti/Derm./Med.Est.), card before/after side-by-side, placeholder foto, nota etica |
-| 9 | Pagina Contatti + Server Action | ⏳ Da fare | Form Resend, pre-selezione area via URL param, orari |
+| 9 | Pagina Contatti + Server Action | ✅ Completato | Form Resend, pre-selezione area via URL param (?area=dermatologia), orari, info contatto |
 | 10 | Pagina Prenota | ⏳ Da fare | Dipende dalla piattaforma scelta (Doctolib / Calendly / custom) |
 | 11 | Blog Skin | ⏳ Da fare | Lista articoli + pagina singolo articolo con slug dinamico |
 | 12 | SEO + Favicon + Metadata | ⏳ Parziale | Metadata base su ogni pagina ✅; manca JSON-LD structured data |
@@ -186,14 +186,6 @@ alessandro-federico-website/
 ---
 
 ## DA FARE — PROSSIMI STEP
-
-### BLOCCO 9 — Contatti
-- `components/ui/ContactForm.tsx` — campi: Nome, Email, Tipo (Derm/Med.Est/Altro), Messaggio
-- Pre-selezione via URL param (`?area=dermatologia`)
-- `app/actions/contact.ts` — Server Action con Resend
-- Template email HTML elegante
-- `app/contatti/page.tsx` — form + orari
-- **Nota**: sostituire `RESEND_API_KEY=placeholder` in `.env.local` con chiave reale da [resend.com](https://resend.com)
 
 ### BLOCCO 10 — Prenota
 - Decidere piattaforma (Doctolib / MioDottore / Calendly / embed custom)
