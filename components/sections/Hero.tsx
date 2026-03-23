@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef } from "react"
+import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
 import TextReveal from "@/components/ui/TextReveal"
 import FadeIn from "@/components/ui/FadeIn"
@@ -73,6 +74,20 @@ export default function Hero() {
           <CTAButton text="Scopri le specialità" href="/specialita" />
         </motion.div>
       </motion.div>
+
+      {/* Logo decorativo — grande, semitrasparente */}
+      <div
+        className="absolute -bottom-16 -right-16 w-[300px] h-[300px] md:w-[450px] md:h-[450px] pointer-events-none select-none"
+        aria-hidden="true"
+      >
+        <Image
+          src="/images/logo-federico-transparent.png"
+          alt=""
+          width={450}
+          height={450}
+          className="object-contain opacity-[0.06]"
+        />
+      </div>
 
       {/* Linea verticale decorativa — solo desktop */}
       <motion.div

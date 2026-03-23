@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { siteConfig } from "@/data/siteConfig"
 
 const GRADIENT = "linear-gradient(135deg, #3D7A97 0%, #4E8FAC 100%)"
@@ -14,6 +15,25 @@ export default function Footer() {
     >
       <div className="mx-auto max-w-6xl">
 
+        {/* Logo + nome — sigillo di chiusura */}
+        <div className="flex flex-col items-center mb-10">
+          <div className="relative w-8 h-8 mb-3">
+            <Image
+              src="/images/logo-federico-transparent.png"
+              alt="Logo Dr. Alessandro Federico"
+              width={32}
+              height={32}
+              className="object-contain brightness-0 invert opacity-60"
+            />
+          </div>
+          <p className="font-heading text-lg text-white">{siteConfig.name}</p>
+          <p className="text-xs text-white/50 tracking-wider uppercase mt-1">
+            Dermatologo · Medicina Estetica · Milano
+          </p>
+        </div>
+
+        <div className="w-16 h-px bg-white/15 mx-auto mb-10" />
+
         {/* Griglia 3 colonne — su mobile impilate e centrate */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-10 text-center md:text-left">
 
@@ -25,7 +45,7 @@ export default function Footer() {
             <p className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/40 mb-4">
               {siteConfig.role}
             </p>
-            {siteConfig.phone !== "[DA DEFINIRE]" && (
+            {siteConfig.phonePlain && (
               <a
                 href={`tel:${siteConfig.phonePlain}`}
                 className="block font-sans text-sm text-white/60 py-0.5 hover:text-white transition-colors duration-300"
@@ -33,14 +53,12 @@ export default function Footer() {
                 {siteConfig.phone}
               </a>
             )}
-            {siteConfig.email !== "[DA DEFINIRE]" && (
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="block font-sans text-sm text-white/60 py-0.5 hover:text-white transition-colors duration-300"
-              >
-                {siteConfig.email}
-              </a>
-            )}
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="block font-sans text-sm text-white/60 py-0.5 hover:text-white transition-colors duration-300"
+            >
+              {siteConfig.email}
+            </a>
           </div>
 
           {/* Colonna 2: studio */}
@@ -48,7 +66,7 @@ export default function Footer() {
             <p className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/40 mb-4">
               Studio
             </p>
-            {siteConfig.address !== "[DA DEFINIRE]" ? (
+            {siteConfig.address && siteConfig.address !== "—" ? (
               <a
                 href={`https://maps.google.com/?q=${encodeURIComponent(siteConfig.address + " " + siteConfig.city)}`}
                 target="_blank"
@@ -90,7 +108,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="font-sans text-xs text-white/25">
             © {year} · {siteConfig.name}
-            {siteConfig.piva !== "[DA DEFINIRE]" && ` · P.IVA ${siteConfig.piva}`}
+            {siteConfig.piva && siteConfig.piva !== "—" && ` · P.IVA ${siteConfig.piva}`}
           </p>
           <div className="flex items-center gap-5">
             <Link

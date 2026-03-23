@@ -58,6 +58,17 @@ export default function ChiSonoPage() {
         {/* ── Hero — Foto + Bio ── */}
         <section className="py-20 md:py-28 bg-white" aria-label="Chi è il Dr. Alessandro Federico">
           <div className="mx-auto max-w-6xl px-5 md:px-10">
+            {/* Logo ornamento */}
+            <div className="relative w-10 h-10 mx-auto md:mx-0 mb-6">
+              <Image
+                src="/images/logo-federico-transparent.png"
+                alt=""
+                width={40}
+                height={40}
+                className="object-contain opacity-25"
+                aria-hidden="true"
+              />
+            </div>
             <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
 
               {/* Foto */}
@@ -212,11 +223,14 @@ export default function ChiSonoPage() {
 
         {/* ── CTA finale ── */}
         <section
-          className="py-20 md:py-24 text-center"
+          className="relative py-20 md:py-24 text-center overflow-hidden"
           style={{ background: "linear-gradient(135deg, #2A5F7A, #3D7A97)" }}
           aria-label="Contattami"
         >
-          <div className="max-w-xl mx-auto px-5 md:px-10">
+          <div className="absolute -left-10 top-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] pointer-events-none select-none" aria-hidden="true">
+            <Image src="/images/logo-federico-transparent.png" alt="" width={400} height={400} className="object-contain brightness-0 invert opacity-[0.05]" />
+          </div>
+          <div className="relative z-10 max-w-xl mx-auto px-5 md:px-10">
             <FadeIn>
               <h2 className="font-heading text-3xl md:text-4xl text-white leading-[1.1] mb-4">
                 Vuoi conoscermi meglio?
@@ -232,6 +246,7 @@ export default function ChiSonoPage() {
             </FadeIn>
           </div>
         </section>
+      
 
       </main>
     </PageTransition>

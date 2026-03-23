@@ -14,8 +14,7 @@ export default function CTASection() {
     offset: ["start end", "end start"],
   })
 
-  const logoY = useTransform(scrollYProgress, [0, 1], [-20, 20])
-  const logoRotate = useTransform(scrollYProgress, [0, 1], [-4, 4])
+  const logoY = useTransform(scrollYProgress, [0, 1], [30, -30])
 
   return (
     <section
@@ -24,22 +23,19 @@ export default function CTASection() {
       style={{ background: "linear-gradient(135deg, #2A5F7A, #3D7A97)" }}
       aria-label="Prenota una visita"
     >
-      {/* Logo in filigrana — sfondo decorativo */}
+      {/* Logo watermark — grande, centrato verticalmente, tagliato a destra */}
       <motion.div
-        style={{ y: logoY, rotate: logoRotate }}
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+        style={{ y: logoY }}
+        className="absolute -right-12 top-1/2 -translate-y-1/2 w-[350px] h-[350px] md:w-[500px] md:h-[500px] pointer-events-none select-none"
         aria-hidden="true"
       >
-        <div className="relative w-[320px] h-[280px] opacity-[0.06]">
-          <Image
-            src="/images/logo.png"
-            alt=""
-            fill
-            sizes="320px"
-            quality={95}
-            className="object-contain brightness-0 invert"
-          />
-        </div>
+        <Image
+          src="/images/logo-federico-transparent.png"
+          alt=""
+          width={500}
+          height={500}
+          className="object-contain brightness-0 invert opacity-[0.07]"
+        />
       </motion.div>
 
       {/* Punto luce centrale */}

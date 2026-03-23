@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { CalendarCheck, Phone, Clock, Mail, ExternalLink } from "lucide-react"
 import PageTransition from "@/components/providers/PageTransition"
 import FadeIn from "@/components/ui/FadeIn"
@@ -263,11 +264,14 @@ export default function PrenotaPage() {
 
         {/* ── CTA finale ── */}
         <section
-          className="py-20 md:py-24 text-center"
+          className="relative py-20 md:py-24 text-center overflow-hidden"
           style={{ background: "linear-gradient(135deg, #2A5F7A, #3D7A97)" }}
           aria-label="Scopri le specialità"
         >
-          <div className="max-w-xl mx-auto px-5 md:px-10">
+          <div className="absolute -right-10 top-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] pointer-events-none select-none" aria-hidden="true">
+            <Image src="/images/logo-federico-transparent.png" alt="" width={400} height={400} className="object-contain brightness-0 invert opacity-[0.05]" />
+          </div>
+          <div className="relative z-10 max-w-xl mx-auto px-5 md:px-10">
             <FadeIn>
               <h2 className="font-heading text-3xl md:text-4xl text-white leading-[1.1] mb-4">
                 Prima visita?

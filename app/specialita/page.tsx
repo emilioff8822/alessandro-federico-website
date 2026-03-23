@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { Activity, Stethoscope, Sparkles } from "lucide-react"
 import { specialita } from "@/data/servizi"
 import SectionLabel from "@/components/ui/SectionLabel"
@@ -113,10 +114,14 @@ export default function SpecialitaPage() {
 
               {/* Banner macro-area */}
               <div
-                className="py-16 md:py-20 px-5 md:px-10"
+                className="relative py-16 md:py-20 px-5 md:px-10 overflow-hidden"
                 style={{ background: theme.bannerGradient }}
               >
-                <div className="mx-auto max-w-6xl flex items-center gap-5">
+                {/* Logo watermark — sfondo decorativo nel banner */}
+                <div className="absolute -right-8 top-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[280px] md:h-[280px] pointer-events-none select-none" aria-hidden="true">
+                  <Image src="/images/logo-federico-transparent.png" alt="" width={280} height={280} className="object-contain brightness-0 invert opacity-[0.06]" />
+                </div>
+                <div className="relative z-10 mx-auto max-w-6xl flex items-center gap-5">
                   <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/15 backdrop-blur-sm">
                     {theme.icon}
                   </div>
@@ -207,11 +212,14 @@ export default function SpecialitaPage() {
 
         {/* ── CTA finale ── */}
         <section
-          className="py-20 md:py-28 text-center"
+          className="relative py-20 md:py-28 text-center overflow-hidden"
           style={{ background: "linear-gradient(135deg, #2A5F7A, #3D7A97)" }}
           aria-label="Prenota una visita"
         >
-          <div className="max-w-xl mx-auto px-5 md:px-10">
+          <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[420px] md:h-[420px] pointer-events-none select-none" aria-hidden="true">
+            <Image src="/images/logo-federico-transparent.png" alt="" width={420} height={420} className="object-contain brightness-0 invert opacity-[0.05]" />
+          </div>
+          <div className="relative z-10 max-w-xl mx-auto px-5 md:px-10">
             <FadeIn>
               <p className="font-sans text-[11px] uppercase tracking-[0.2em] text-white/50 mb-6">
                 Inizia il tuo percorso

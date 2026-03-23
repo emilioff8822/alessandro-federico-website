@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion"
 import { siteConfig } from "@/data/siteConfig"
 
@@ -34,19 +35,31 @@ export default function Navbar() {
       >
         <div className="mx-auto flex h-[68px] max-w-6xl items-center justify-between px-5 md:px-10">
 
-          {/* Identità — solo tipografia */}
+          {/* Identità — logo + tipografia */}
           <Link
             href="/"
             onClick={() => setMenuOpen(false)}
-            className="group flex flex-col leading-tight py-2"
+            className="group flex items-center gap-3 py-2"
             aria-label="Homepage Dr. Alessandro Federico"
           >
-            <span className="font-heading text-[15px] text-white tracking-wide group-hover:text-white/90 transition-colors duration-300">
-              Dr. Alessandro Federico
-            </span>
-            <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/50 mt-0.5">
-              Dermatologo · Medicina Estetica
-            </span>
+            <div className="relative w-[26px] h-[26px] flex-shrink-0">
+              <Image
+                src="/images/logo-federico-transparent.png"
+                alt="Logo Dr. Alessandro Federico"
+                width={26}
+                height={26}
+                className="object-contain brightness-0 invert"
+                priority
+              />
+            </div>
+            <div className="flex flex-col leading-tight">
+              <span className="font-heading text-[15px] text-white tracking-wide group-hover:text-white/90 transition-colors duration-300">
+                Dr. Alessandro Federico
+              </span>
+              <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/50 mt-0.5 hidden sm:block">
+                Dermatologo · Medicina Estetica
+              </span>
+            </div>
           </Link>
 
           {/* Nav desktop */}
