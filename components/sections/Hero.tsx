@@ -21,7 +21,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[calc(100vh-68px)] flex flex-col md:flex-row overflow-hidden pt-[68px]"
+      className="relative min-h-[calc(100vh-68px)] flex flex-col md:flex-row overflow-hidden"
       aria-label="Presentazione Dr. Alessandro Federico"
     >
 

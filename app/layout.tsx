@@ -21,6 +21,11 @@ const dmSans = DM_Sans({
   display: "swap",
 })
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -80,8 +85,10 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         <Navbar />
         <SmoothScroll>
-          {children}
-          <Footer />
+          <div className="pt-[68px]">
+            {children}
+            <Footer />
+          </div>
         </SmoothScroll>
       </body>
     </html>
