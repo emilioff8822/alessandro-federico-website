@@ -1,26 +1,96 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans:    var(--font-dm-sans);
+  --font-heading: var(--font-dm-serif);
+
+  --color-bg:       #FFFFFF;
+  --color-surface:  #F4F7FA;
+
+  --color-text:  #111827;
+  --color-muted: #4B5563;
+  --color-faint: #9CA3AF;
+
+  --color-accent:      #7AAEC9;
+  --color-accent-dark: #4A7D9A;
+
+  --color-border:       rgba(17, 24, 39, 0.12);
+  --color-border-hover: rgba(17, 24, 39, 0.22);
+
+  --color-white: #FFFFFF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+:root { color-scheme: light; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto !important;
+  scroll-padding-top: 80px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FFFFFF;
+  color: #111827;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 70% 0%,
+    rgba(122, 174, 201, 0.04) 0%,
+    transparent 60%
+  );
+}
+
+.link-hover {
+  position: relative;
+}
+.link-hover::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-hover:hover::after {
+  transform: scaleX(1);
+}
+
+.footer-link {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.footer-link:hover {
+  transform: translateX(4px);
+}
+
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #FFFFFF; }
+::-webkit-scrollbar-thumb { background: rgba(122, 174, 201, 0.3); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(122, 174, 201, 0.5); }
+
+::selection {
+  background: rgba(122, 174, 201, 0.18);
+  color: #111827;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+@media (hover: none) and (pointer: coarse) {
+  button:active, a:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
+  }
 }
