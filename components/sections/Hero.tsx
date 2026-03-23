@@ -14,9 +14,8 @@ export default function Hero() {
     offset: ["start start", "end start"],
   })
 
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -80])
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0])
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.06])
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -60])
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.05])
 
   return (
     <section
@@ -25,43 +24,32 @@ export default function Hero() {
       aria-label="Presentazione Dr. Alessandro Federico"
     >
 
-      {/* ── Foto — mobile: sopra (40vh), desktop: metà destra ── */}
-      <div className="relative w-full h-[45vw] min-h-[260px] md:absolute md:inset-y-0 md:right-0 md:w-[48%] md:h-auto overflow-hidden">
+      {/* Foto — solo desktop, metà destra assoluta */}
+      <div className="hidden md:block md:absolute md:inset-y-0 md:right-0 md:w-[48%] overflow-hidden">
         <motion.div style={{ scale: imageScale }} className="absolute inset-0">
           <Image
             src="/images/foto-hero.png"
             alt="Dr. Alessandro Federico, Dermatologo e Medico Estetico"
             fill
-            sizes="(max-width: 768px) 100vw, 48vw"
+            sizes="48vw"
             quality={95}
             priority
             className="object-cover object-top"
           />
         </motion.div>
-        {/* Gradiente sfumatura verso sinistra su desktop */}
         <div
-          className="absolute inset-0 hidden md:block"
-          style={{
-            background: "linear-gradient(to right, #ffffff 0%, transparent 40%)",
-          }}
-          aria-hidden="true"
-        />
-        {/* Gradiente sfumatura verso il basso su mobile */}
-        <div
-          className="absolute inset-0 md:hidden"
-          style={{
-            background: "linear-gradient(to bottom, transparent 60%, #ffffff 100%)",
-          }}
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to right, #ffffff 0%, transparent 35%)" }}
           aria-hidden="true"
         />
       </div>
 
-      {/* ── Contenuto testuale ── */}
+      {/* Contenuto testuale — centrato su mobile, a sinistra su desktop */}
       <motion.div
-        style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-10 flex flex-col justify-center w-full md:w-[58%] px-5 md:px-10 lg:px-16 py-14 md:py-28 text-center md:text-left"
+        style={{ y: contentY }}
+        className="relative z-10 flex flex-col justify-center w-full md:w-[58%] px-6 md:px-10 lg:px-16 py-16 md:py-28 text-center md:text-left"
       >
-        {/* Tag animato */}
+        {/* Tag */}
         <div className="flex items-center justify-center md:justify-start gap-3 mb-8">
           <motion.div
             initial={{ width: 0 }}
@@ -80,7 +68,7 @@ export default function Hero() {
         </div>
 
         {/* Nome */}
-        <h1 className="font-heading text-[clamp(3rem,6vw,5.5rem)] text-text leading-[1.05] mb-6">
+        <h1 className="font-heading text-[clamp(3rem,7vw,5.5rem)] text-text leading-[1.05] mb-6">
           <TextReveal delay={0.7}>Dr. Alessandro</TextReveal>
           <br />
           <TextReveal delay={1.1}>Federico</TextReveal>
@@ -99,14 +87,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 2.3, ease: [0.22, 1, 0.36, 1] }}
-          className="flex justify-center md:justify-start gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4"
         >
           <CTAButton text="Prenota una visita" href="/prenota" solid />
           <CTAButton text="Scopri le specialità" href="/specialita" />
         </motion.div>
       </motion.div>
 
-      {/* Linea verticale animata in basso */}
+      {/* Linea verticale decorativa — solo desktop */}
       <motion.div
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: 72, opacity: 0.15 }}
