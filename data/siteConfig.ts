@@ -4,14 +4,14 @@ export const siteConfig = {
   role: "Dermatologo · Medicina Estetica",
   studio: "Studio Dr. Alessandro Federico",
 
-  phone: "[DA DEFINIRE]",
-  phonePlain: "[DA DEFINIRE]",
-  email: "[DA DEFINIRE]",
-  address: "[DA DEFINIRE]",
-  city: "[DA DEFINIRE]",
-  cap: "[DA DEFINIRE]",
-  zone: "[DA DEFINIRE]",
-  piva: "[DA DEFINIRE]",
+  phone: "—",
+  phonePlain: "",
+  email: "alfederico89@gmail.com",
+  address: "—",
+  city: "Milano",
+  cap: "—",
+  zone: "—",
+  piva: "—",
 
   url: "https://www.alessandrofederico.it",
 
@@ -30,8 +30,8 @@ export const siteConfig = {
   ],
 
   orari: [
-    { giorno: "Lunedì – Venerdì", ore: "[DA DEFINIRE]" },
-    { giorno: "Sabato",           ore: "[DA DEFINIRE]" },
+    { giorno: "Lunedì – Venerdì", ore: "—" },
+    { giorno: "Sabato",           ore: "—" },
     { giorno: "Domenica",         ore: "Chiuso" },
   ],
 } as const
