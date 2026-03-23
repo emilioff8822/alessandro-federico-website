@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { DM_Serif_Display, DM_Sans } from "next/font/google"
 import "./globals.css"
+import Navbar from "@/components/layout/Navbar"
+import Footer from "@/components/layout/Footer"
 import SmoothScroll from "@/components/providers/SmoothScroll"
 import { siteConfig } from "@/data/siteConfig"
 
@@ -74,10 +76,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="it" dir="ltr" className={`${dmSerif.variable} ${dmSans.variable}`}>
-      <body>
+    <html lang="it" dir="ltr" className={`${dmSerif.variable} ${dmSans.variable}`} suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <Navbar />
         <SmoothScroll>
           {children}
+          <Footer />
         </SmoothScroll>
       </body>
     </html>
