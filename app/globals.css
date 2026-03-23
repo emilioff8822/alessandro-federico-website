@@ -74,12 +74,25 @@ body {
   color: #111827;
 }
 
-* { -webkit-tap-highlight-color: transparent; }
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 
 @media (hover: none) and (pointer: coarse) {
-  a:active {
-    opacity: 0.85;
-    transition: opacity 0.1s ease;
+  a:active, button:active {
+    opacity: 0.88;
+    transition: opacity 0.12s ease-out;
+  }
+
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

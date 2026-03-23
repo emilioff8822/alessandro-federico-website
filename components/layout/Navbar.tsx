@@ -118,7 +118,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className={`block font-sans text-[15px] py-4 transition-colors duration-150 ${
+                    className={`block font-sans text-[15px] py-[14px] min-h-[48px] flex items-center justify-center transition-colors duration-150 ${
                       pathname === link.href
                         ? "text-white font-medium"
                         : "text-white/60 hover:text-white"

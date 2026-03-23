@@ -14,8 +14,7 @@ export default function Hero() {
     offset: ["start start", "end start"],
   })
 
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -60])
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.05])
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -30])
 
   return (
     <section
@@ -34,13 +33,13 @@ export default function Hero() {
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: 20 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="h-px bg-accent"
           />
           <motion.span
-            initial={{ opacity: 0, y: 6 }}
+            initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
             className="font-sans text-[11px] uppercase tracking-[0.18em] text-accent"
           >
             Dermatologo · Medicina Estetica
@@ -49,14 +48,14 @@ export default function Hero() {
 
         {/* Nome */}
         <h1 className="font-heading text-[clamp(3rem,7vw,5.5rem)] text-text leading-[1.05] mb-6">
-          <TextReveal delay={0.7}>Dr. Alessandro</TextReveal>
+          <TextReveal delay={0.3}>Dr. Alessandro</TextReveal>
           <br />
-          <TextReveal delay={1.1}>Federico</TextReveal>
+          <TextReveal delay={0.5}>Federico</TextReveal>
           <span className="sr-only"> — Dermatologo e Medico Estetico a Milano</span>
         </h1>
 
         {/* Descrizione */}
-        <FadeIn delay={1.9}>
+        <FadeIn delay={0.6}>
           <p className="font-sans text-base md:text-lg text-muted leading-[1.8] max-w-sm mx-auto md:mx-0 mb-8">
             Specialista in dermatologia clinica e medicina estetica a Milano.
             Un approccio integrato per la salute e il benessere della pelle.
@@ -65,9 +64,9 @@ export default function Hero() {
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 2.3, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.45, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4"
         >
           <CTAButton text="Prenota una visita" href="/prenota" solid />
@@ -93,7 +92,7 @@ export default function Hero() {
       <motion.div
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: 72, opacity: 0.15 }}
-        transition={{ duration: 1, delay: 2.8 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px bg-accent hidden md:block"
         aria-hidden="true"
       />

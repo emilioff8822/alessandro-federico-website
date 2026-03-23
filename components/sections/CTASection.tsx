@@ -14,7 +14,7 @@ export default function CTASection() {
     offset: ["start end", "end start"],
   })
 
-  const logoY = useTransform(scrollYProgress, [0, 1], [30, -30])
+  const logoY = useTransform(scrollYProgress, [0, 1], [20, -20])
 
   return (
     <section

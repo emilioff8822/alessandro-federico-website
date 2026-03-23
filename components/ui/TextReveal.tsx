@@ -11,7 +11,7 @@ type Props = {
 
 export default function TextReveal({ children, className, delay = 0 }: Props) {
   const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: "-15%" })
+  const inView = useInView(ref, { once: true, margin: "-8%" })
 
   const words = children.split(" ")
 
@@ -20,13 +20,13 @@ export default function TextReveal({ children, className, delay = 0 }: Props) {
       {words.map((word, i) => (
         <span key={i} className="inline-block overflow-hidden">
           <motion.span
-            className="inline-block"
-            initial={{ y: "100%" }}
-            animate={inView ? { y: "0%" } : { y: "100%" }}
+            className="inline-block will-change-transform"
+            initial={{ y: "55%", opacity: 0 }}
+            animate={inView ? { y: "0%", opacity: 1 } : { y: "55%", opacity: 0 }}
             transition={{
-              duration: 0.8,
-              delay: delay + i * 0.03,
-              ease: [0.215, 0.61, 0.355, 1],
+              duration: 0.65,
+              delay: delay + i * 0.025,
+              ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
             {word}
