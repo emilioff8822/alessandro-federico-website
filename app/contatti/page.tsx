@@ -100,7 +100,7 @@ export default function ContattiPage() {
                   {/* Striscia accent in cima */}
                   <div
                     className="h-1 w-full"
-                    style={{ background: "linear-gradient(90deg, #3D7A97, #7AAEC9)" }}
+                    style={{ background: "linear-gradient(90deg, #4D9AAD, #84B3C8)" }}
                   />
                   <div className="p-8 md:p-10">
                     <p className="font-sans text-[10px] uppercase tracking-[0.2em] mb-2" style={{ color: "#7AAEC9" }}>
@@ -133,7 +133,7 @@ export default function ContattiPage() {
                       className="px-6 py-4"
                       style={{ background: "linear-gradient(135deg, #EEF6FA, #F4F9FB)" }}
                     >
-                      <p className="font-sans text-[9px] uppercase tracking-[0.2em]" style={{ color: "#3A8A9E" }}>
+                      <p className="font-sans text-[9px] uppercase tracking-[0.2em]" style={{ color: "#4D9AAD" }}>
                         Informazioni
                       </p>
                     </div>
@@ -142,13 +142,13 @@ export default function ContattiPage() {
                         <div className="flex items-start gap-3.5">
                           <div
                             className="shrink-0 w-8 h-8 rounded-xl flex items-center justify-center mt-0.5"
-                            style={{ background: "rgba(122,174,201,0.1)", color: "#3A8A9E" }}
+                            style={{ background: "rgba(122,174,201,0.1)", color: "#4D9AAD" }}
                           >
                             <Phone strokeWidth={1.4} className="w-3.5 h-3.5" />
                           </div>
                           <div>
                             <p className="font-sans text-[9px] uppercase tracking-[0.15em] text-muted mb-0.5">Telefono</p>
-                            <a href={`tel:${siteConfig.phonePlain}`} className="font-sans text-sm text-text hover:text-[#3A8A9E] transition-colors duration-200">
+                            <a href={`tel:${siteConfig.phonePlain}`} className="font-sans text-sm text-text hover:text-[#4D9AAD] transition-colors duration-200">
                               {siteConfig.phone}
                             </a>
                           </div>
@@ -157,13 +157,13 @@ export default function ContattiPage() {
                       <div className="flex items-start gap-3.5">
                         <div
                           className="shrink-0 w-8 h-8 rounded-xl flex items-center justify-center mt-0.5"
-                          style={{ background: "rgba(122,174,201,0.1)", color: "#3A8A9E" }}
+                          style={{ background: "rgba(122,174,201,0.1)", color: "#4D9AAD" }}
                         >
                           <Mail strokeWidth={1.4} className="w-3.5 h-3.5" />
                         </div>
                         <div>
                           <p className="font-sans text-[9px] uppercase tracking-[0.15em] text-muted mb-0.5">Email</p>
-                          <a href={`mailto:${siteConfig.email}`} className="font-sans text-sm text-text hover:text-[#3A8A9E] transition-colors duration-200">
+                          <a href={`mailto:${siteConfig.email}`} className="font-sans text-sm text-text hover:text-[#4D9AAD] transition-colors duration-200">
                             {siteConfig.email}
                           </a>
                         </div>
@@ -171,7 +171,7 @@ export default function ContattiPage() {
                       <div className="flex items-start gap-3.5">
                         <div
                           className="shrink-0 w-8 h-8 rounded-xl flex items-center justify-center mt-0.5"
-                          style={{ background: "rgba(122,174,201,0.1)", color: "#3A8A9E" }}
+                          style={{ background: "rgba(122,174,201,0.1)", color: "#4D9AAD" }}
                         >
                           <MapPin strokeWidth={1.4} className="w-3.5 h-3.5" />
                         </div>
@@ -198,8 +198,8 @@ export default function ContattiPage() {
                       className="px-6 py-4 flex items-center gap-2"
                       style={{ background: "linear-gradient(135deg, #EEF6FA, #F4F9FB)" }}
                     >
-                      <Clock strokeWidth={1.4} className="w-3.5 h-3.5" style={{ color: "#3A8A9E" }} />
-                      <p className="font-sans text-[9px] uppercase tracking-[0.2em]" style={{ color: "#3A8A9E" }}>
+                      <Clock strokeWidth={1.4} className="w-3.5 h-3.5" style={{ color: "#4D9AAD" }} />
+                      <p className="font-sans text-[9px] uppercase tracking-[0.2em]" style={{ color: "#4D9AAD" }}>
                         Orari
                       </p>
                     </div>
@@ -214,7 +214,7 @@ export default function ContattiPage() {
                             <span className="font-sans text-xs text-muted">{o.giorno}</span>
                             <span
                               className="font-sans text-xs font-medium"
-                              style={{ color: o.ore === "Chiuso" ? "rgba(17,24,39,0.25)" : "#3A8A9E" }}
+                              style={{ color: o.ore === "Chiuso" ? "rgba(17,24,39,0.25)" : "#4D9AAD" }}
                             >
                               {o.ore}
                             </span>

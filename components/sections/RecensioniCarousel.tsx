@@ -7,10 +7,10 @@ import FadeIn from "@/components/ui/FadeIn"
 
 // Sfondi alternati coerenti col brand
 const cardBg = [
-  { bg: "#FFFFFF", border: "rgba(58,138,158,0.12)", accent: "#3A8A9E" },
-  { bg: "#F4F9FB", border: "rgba(58,138,158,0.12)", accent: "#3A8A9E" },
-  { bg: "#EBF4F8", border: "rgba(74,111,165,0.12)", accent: "#4A6FA5" },
-  { bg: "#FFFFFF", border: "rgba(74,111,165,0.12)", accent: "#4A6FA5" },
+  { bg: "#FFFFFF", border: "rgba(77,154,173,0.12)", accent: "#4D9AAD" },
+  { bg: "#F5FAFB", border: "rgba(77,154,173,0.12)", accent: "#4D9AAD" },
+  { bg: "#ECF0F6", border: "rgba(91,126,174,0.12)", accent: "#5B7EAE" },
+  { bg: "#FFFFFF", border: "rgba(91,126,174,0.12)", accent: "#5B7EAE" },
 ]
 
 const AUTO_INTERVAL = 5500
@@ -151,7 +151,7 @@ export default function RecensioniCarousel() {
                 height: "8px",
                 background:
                   i === current
-                    ? "linear-gradient(135deg, #3A8A9E, #4D9DB2)"
+                    ? "linear-gradient(135deg, #4D9AAD, #62ADBE)"
                     : "rgba(17,24,39,0.15)",
               }}
             />

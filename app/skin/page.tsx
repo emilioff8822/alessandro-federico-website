@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 }
 
 const cardBg = [
-  { bg: "#F4F9FB", border: "rgba(58,138,158,0.15)", accent: "#3A8A9E", gradiente: "linear-gradient(135deg, #7EC4D4, #93D0DE)" },
+  { bg: "#F4F9FB", border: "rgba(58,138,158,0.15)", accent: "#4D9AAD", gradiente: "linear-gradient(135deg, #7EC4D4, #93D0DE)" },
   { bg: "#F4F6FB", border: "rgba(74,111,165,0.15)", accent: "#4A6FA5", gradiente: "linear-gradient(135deg, #82A8CC, #97BBD8)" },
 ]
 

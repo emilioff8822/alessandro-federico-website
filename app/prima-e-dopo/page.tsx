@@ -85,9 +85,9 @@ export default function PrimaEDopoPage() {
               <div className="flex flex-col sm:flex-row gap-5 items-start">
                 <div
                   className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center mt-0.5"
-                  style={{ background: "linear-gradient(135deg, #3A8A9E22, #3A8A9E44)" }}
+                  style={{ background: "linear-gradient(135deg, #4D9AAD22, #4D9AAD44)" }}
                 >
-                  <SplitSquareHorizontal strokeWidth={1.4} className="w-4 h-4" style={{ color: "#3A8A9E" }} />
+                  <SplitSquareHorizontal strokeWidth={1.4} className="w-4 h-4" style={{ color: "#4D9AAD" }} />
                 </div>
                 <div>
                   <h2 className="font-heading text-xl text-text mb-2">Consenso e privacy</h2>

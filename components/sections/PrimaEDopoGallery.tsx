@@ -8,7 +8,7 @@ import FadeIn from "@/components/ui/FadeIn"
 
 const temaCategoria: Record<string, { accent: string; bg: string; border: string; label: string }> = {
   dermatologia: {
-    accent: "#3A8A9E",
+    accent: "#4D9AAD",
     bg: "#F4F9FB",
     border: "rgba(58,138,158,0.18)",
     label: "DERMATOLOGIA",
@@ -61,7 +61,7 @@ export default function PrimaEDopoGallery() {
             const attivo = filtroAttivo === f.value
             const accentColor =
               f.value === "dermatologia"
-                ? "#3A8A9E"
+                ? "#4D9AAD"
                 : f.value === "medicina-estetica"
                 ? "#4A6FA5"
                 : "#4A7D9A"

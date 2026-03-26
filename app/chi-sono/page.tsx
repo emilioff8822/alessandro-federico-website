@@ -179,8 +179,8 @@ export default function ChiSonoPage() {
                       <div
                         className="w-16 h-16 rounded-2xl flex items-center justify-center"
                         style={{
-                          background: "linear-gradient(135deg, #3A8A9E, #4D9DB2)",
-                          boxShadow: "0 8px 24px rgba(58,138,158,0.25)",
+                          background: "linear-gradient(135deg, #4D9AAD, #62ADBE)",
+                          boxShadow: "0 8px 24px rgba(77,154,173,0.2)",
                         }}
                       >
                         {item.icon}

@@ -98,7 +98,7 @@ export default async function ArticoloPage({ params }: Props) {
               <FadeIn>
                 <Link
                   href="/skin"
-                  className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.15em] text-muted hover:text-[#3A8A9E] transition-colors duration-200 mb-10"
+                  className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.15em] text-muted hover:text-[#4D9AAD] transition-colors duration-200 mb-10"
                 >
                   <ArrowLeft strokeWidth={1.5} className="w-3.5 h-3.5" />
                   Tutti gli articoli
@@ -112,7 +112,7 @@ export default async function ArticoloPage({ params }: Props) {
                     className="font-sans text-[9px] uppercase tracking-[0.18em] px-3 py-1.5 rounded-full"
                     style={{
                       background: "rgba(58,138,158,0.10)",
-                      color: "#3A8A9E",
+                      color: "#4D9AAD",
                     }}
                   >
                     {art.categoria}
@@ -175,7 +175,7 @@ export default async function ArticoloPage({ params }: Props) {
                       className="font-sans text-[10px] uppercase tracking-[0.14em] px-3 py-1.5 rounded-full"
                       style={{
                         background: "rgba(58,138,158,0.08)",
-                        color: "#3A8A9E",
+                        color: "#4D9AAD",
                       }}
                     >
                       {tag}

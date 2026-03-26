@@ -29,7 +29,7 @@ const centri = [
     descrizione: "Il Dr. Federico visita nelle sedi milanesi del Centro Medico Santagostino, con disponibilità in tempo reale.",
     badge: "4.7/5 · 581 recensioni",
     gradiente: "linear-gradient(135deg, #7EC4D4 0%, #93D0DE 100%)",
-    accent: "#3A8A9E",
+    accent: "#4D9AAD",
     accentTesto: "#2D6E7E",
     bgIcona: "rgba(58,138,158,0.10)",
     border: "rgba(58,138,158,0.14)",

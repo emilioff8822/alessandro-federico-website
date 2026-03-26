@@ -26,9 +26,9 @@ export default function ContactForm() {
       <div className="flex flex-col items-center gap-5 py-14 text-center">
         <div
           className="w-14 h-14 rounded-full flex items-center justify-center"
-          style={{ background: "linear-gradient(135deg, #3A8A9E22, #3A8A9E44)" }}
+          style={{ background: "linear-gradient(135deg, #4D9AAD22, #4D9AAD44)" }}
         >
-          <CheckCircle strokeWidth={1.4} className="w-7 h-7" style={{ color: "#3A8A9E" }} />
+          <CheckCircle strokeWidth={1.4} className="w-7 h-7" style={{ color: "#4D9AAD" }} />
         </div>
         <div>
           <p className="font-heading text-2xl md:text-3xl text-text mb-2">
@@ -48,7 +48,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div className="flex flex-col gap-1.5">
           <label htmlFor="nome" className="font-sans text-xs uppercase tracking-[0.15em] text-muted font-medium">
-            Nome <span className="text-[#3A8A9E]">*</span>
+            Nome <span className="text-[#4D9AAD]">*</span>
           </label>
           <input
             id="nome"
@@ -63,7 +63,7 @@ export default function ContactForm() {
 
         <div className="flex flex-col gap-1.5">
           <label htmlFor="email" className="font-sans text-xs uppercase tracking-[0.15em] text-muted font-medium">
-            Email <span className="text-[#3A8A9E]">*</span>
+            Email <span className="text-[#4D9AAD]">*</span>
           </label>
           <input
             id="email"
@@ -110,7 +110,7 @@ export default function ContactForm() {
 
       <div className="flex flex-col gap-1.5">
         <label htmlFor="messaggio" className="font-sans text-xs uppercase tracking-[0.15em] text-muted font-medium">
-          Messaggio <span className="text-[#3A8A9E]">*</span>
+          Messaggio <span className="text-[#4D9AAD]">*</span>
         </label>
         <textarea
           id="messaggio"
@@ -138,7 +138,7 @@ export default function ContactForm() {
           type="submit"
           disabled={pending}
           className="px-10 py-3.5 font-sans text-[13px] uppercase tracking-[0.15em] font-medium text-white rounded-lg transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(58,138,158,0.3)] active:translate-y-0 active:scale-[0.97] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
-          style={{ background: "linear-gradient(135deg, #3A8A9E, #4D9DB2)" }}
+          style={{ background: "linear-gradient(135deg, #4D9AAD, #62ADBE)" }}
         >
           {pending ? "Invio in corso…" : "Invia messaggio"}
         </button>
