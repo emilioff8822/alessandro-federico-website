@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { siteConfig } from "@/data/siteConfig"
 
-const GRADIENT = "linear-gradient(135deg, #3D7A97 0%, #4E8FAC 100%)"
+const GRADIENT = "linear-gradient(135deg, #5A93A6 0%, #6D9FB2 100%)"
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -15,19 +15,18 @@ export default function Footer() {
     >
       <div className="mx-auto max-w-6xl">
 
-        {/* Logo + nome — sigillo di chiusura */}
+        {/* Logo completo — DR YOUTH / Alessandro Federico */}
         <div className="flex flex-col items-center mb-10">
-          <div className="relative w-8 h-8 mb-3">
+          <div className="relative w-[140px] h-[140px] mb-1">
             <Image
-              src="/images/logo-federico-transparent.png"
-              alt="Logo Dr. Alessandro Federico"
-              width={32}
-              height={32}
-              className="object-contain brightness-0 invert opacity-60"
+              src="/images/logo-dryouth-transparent.png"
+              alt="Logo Dr. Youth — Alessandro Federico"
+              width={140}
+              height={140}
+              className="object-contain brightness-0 invert opacity-75"
             />
           </div>
-          <p className="font-heading text-lg text-white">{siteConfig.name}</p>
-          <p className="text-xs text-white/50 tracking-wider uppercase mt-1">
+          <p className="text-[10px] text-white/40 tracking-wider uppercase mt-1">
             Dermatologo · Medicina Estetica · Milano
           </p>
         </div>

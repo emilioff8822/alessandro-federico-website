@@ -81,7 +81,7 @@ export default function SpecialitaPage() {
               <div
                 className="hidden md:flex w-20 h-20 rounded-xl items-center justify-center flex-shrink-0 mt-2"
                 style={{
-                  background: "linear-gradient(135deg, #3D7A97, #7AAEC9)",
+                  background: "linear-gradient(135deg, #4E8DA3, #84B3C8)",
                   boxShadow: "0 8px 32px rgba(122,174,201,0.35)",
                 }}
                 aria-hidden="true"
@@ -119,7 +119,7 @@ export default function SpecialitaPage() {
               >
                 {/* Logo watermark — sfondo decorativo nel banner */}
                 <div className="absolute -right-8 top-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[280px] md:h-[280px] pointer-events-none select-none" aria-hidden="true">
-                  <Image src="/images/logo-federico-transparent.png" alt="" width={280} height={280} className="object-contain brightness-0 invert opacity-[0.06]" />
+                  <Image src="/images/logo-dryouth-transparent.png" alt="" width={280} height={280} className="object-contain brightness-0 invert opacity-[0.06]" />
                 </div>
                 <div className="relative z-10 mx-auto max-w-6xl flex items-center gap-5">
                   <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/15 backdrop-blur-sm">
@@ -213,11 +213,11 @@ export default function SpecialitaPage() {
         {/* ── CTA finale ── */}
         <section
           className="relative py-20 md:py-28 text-center overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #2A5F7A, #3D7A97)" }}
+          style={{ background: "linear-gradient(135deg, #4A7F93, #5A93A6)" }}
           aria-label="Prenota una visita"
         >
           <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[420px] md:h-[420px] pointer-events-none select-none" aria-hidden="true">
-            <Image src="/images/logo-federico-transparent.png" alt="" width={420} height={420} className="object-contain brightness-0 invert opacity-[0.05]" />
+            <Image src="/images/logo-dryouth-transparent.png" alt="" width={420} height={420} className="object-contain brightness-0 invert opacity-[0.05]" />
           </div>
           <div className="relative z-10 max-w-xl mx-auto px-5 md:px-10">
             <FadeIn>

@@ -20,7 +20,7 @@ export default function CTASection() {
     <section
       ref={sectionRef}
       className="relative py-24 md:py-32 overflow-hidden"
-      style={{ background: "linear-gradient(135deg, #2A5F7A, #3D7A97)" }}
+      style={{ background: "linear-gradient(135deg, #4A7F93, #5A93A6)" }}
       aria-label="Prenota una visita"
     >
       {/* Logo watermark — grande, centrato verticalmente, tagliato a destra */}
@@ -30,7 +30,7 @@ export default function CTASection() {
         aria-hidden="true"
       >
         <Image
-          src="/images/logo-federico-transparent.png"
+          src="/images/logo-dryouth-transparent.png"
           alt=""
           width={500}
           height={500}

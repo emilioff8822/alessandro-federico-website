@@ -243,7 +243,7 @@ export default async function ArticoloPage({ params }: Props) {
           <section
             className="py-20 md:py-24 text-center"
             style={{
-              background: "linear-gradient(135deg, #2A5F7A, #3D7A97)",
+              background: "linear-gradient(135deg, #4A7F93, #5A93A6)",
             }}
           >
             <div className="max-w-xl mx-auto px-5 md:px-10">

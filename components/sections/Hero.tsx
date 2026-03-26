@@ -80,7 +80,7 @@ export default function Hero() {
         aria-hidden="true"
       >
         <Image
-          src="/images/logo-federico-transparent.png"
+          src="/images/logo-dryouth-transparent.png"
           alt=""
           width={450}
           height={450}

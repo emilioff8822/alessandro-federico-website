@@ -7,7 +7,7 @@ import Image from "next/image"
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion"
 import { siteConfig } from "@/data/siteConfig"
 
-const GRADIENT = "linear-gradient(135deg, #3D7A97 0%, #4E8FAC 100%)"
+const GRADIENT = "linear-gradient(135deg, #5A93A6 0%, #6D9FB2 100%)"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -42,12 +42,12 @@ export default function Navbar() {
             className="group flex items-center gap-3 py-2"
             aria-label="Homepage Dr. Alessandro Federico"
           >
-            <div className="relative w-[26px] h-[26px] flex-shrink-0">
+            <div className="relative w-[28px] h-[28px] flex-shrink-0">
               <Image
-                src="/images/logo-federico-transparent.png"
-                alt="Logo Dr. Alessandro Federico"
-                width={26}
-                height={26}
+                src="/images/logo-dryouth-symbol.png"
+                alt="Logo Dr. Youth — Alessandro Federico"
+                width={28}
+                height={28}
                 className="object-contain brightness-0 invert"
                 priority
               />

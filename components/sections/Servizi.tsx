@@ -39,7 +39,7 @@ export default function Servizi() {
                     <div
                       className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-white flex-shrink-0"
                       style={{
-                        background: "linear-gradient(135deg, #3D7A97, #7AAEC9)",
+                        background: "linear-gradient(135deg, #4E8DA3, #84B3C8)",
                         boxShadow: "0 4px 18px rgba(122,174,201,0.35), 0 1px 4px rgba(74,125,154,0.2)",
                       }}
                     >

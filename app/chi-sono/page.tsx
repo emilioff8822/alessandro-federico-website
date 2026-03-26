@@ -58,17 +58,6 @@ export default function ChiSonoPage() {
         {/* ── Hero — Foto + Bio ── */}
         <section className="py-20 md:py-28 bg-white" aria-label="Chi è il Dr. Alessandro Federico">
           <div className="mx-auto max-w-6xl px-5 md:px-10">
-            {/* Logo ornamento */}
-            <div className="relative w-10 h-10 mx-auto md:mx-0 mb-6">
-              <Image
-                src="/images/logo-federico-transparent.png"
-                alt=""
-                width={40}
-                height={40}
-                className="object-contain opacity-25"
-                aria-hidden="true"
-              />
-            </div>
             <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
 
               {/* Foto */}
@@ -97,7 +86,7 @@ export default function ChiSonoPage() {
                     <div
                       className="w-12 h-12 md:w-16 md:h-16 rounded-xl flex items-center justify-center text-white"
                       style={{
-                        background: "linear-gradient(135deg, #3D7A97, #7AAEC9)",
+                        background: "linear-gradient(135deg, #4E8DA3, #84B3C8)",
                         boxShadow: "0 6px 24px rgba(122,174,201,0.3)",
                       }}
                     >
@@ -143,9 +132,8 @@ export default function ChiSonoPage() {
                   <div className="flex flex-col sm:flex-row items-center md:items-start gap-3 text-center md:text-left">
                     <CTAButton text="Prenota una visita" href="/prenota" solid />
                     <a
-                      href="/documenti/cv-alessandro-federico.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="/cv-alessandro-federico.pdf"
+                      download="CV-Dr-Alessandro-Federico.pdf"
                       className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-[13px] uppercase tracking-[0.15em] font-sans font-medium border-[1.5px] border-[rgba(17,24,39,0.18)] text-text hover:border-accent hover:text-accent hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(122,174,201,0.18)] active:scale-[0.97] active:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
                     >
                       <Download strokeWidth={1.5} className="w-3.5 h-3.5" />
@@ -224,11 +212,11 @@ export default function ChiSonoPage() {
         {/* ── CTA finale ── */}
         <section
           className="relative py-20 md:py-24 text-center overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #2A5F7A, #3D7A97)" }}
+          style={{ background: "linear-gradient(135deg, #4A7F93, #5A93A6)" }}
           aria-label="Contattami"
         >
           <div className="absolute -left-10 top-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] pointer-events-none select-none" aria-hidden="true">
-            <Image src="/images/logo-federico-transparent.png" alt="" width={400} height={400} className="object-contain brightness-0 invert opacity-[0.05]" />
+            <Image src="/images/logo-dryouth-transparent.png" alt="" width={400} height={400} className="object-contain brightness-0 invert opacity-[0.05]" />
           </div>
           <div className="relative z-10 max-w-xl mx-auto px-5 md:px-10">
             <FadeIn>

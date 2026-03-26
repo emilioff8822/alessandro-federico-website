@@ -39,7 +39,7 @@ export default function RecensioniPage() {
               <div
                 className="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center text-white mx-auto mb-8"
                 style={{
-                  background: "linear-gradient(135deg, #3D7A97, #7AAEC9)",
+                  background: "linear-gradient(135deg, #4E8DA3, #84B3C8)",
                   boxShadow: "0 8px 28px rgba(122,174,201,0.3)",
                 }}
               >
@@ -96,11 +96,11 @@ export default function RecensioniPage() {
         {/* ── CTA finale ── */}
         <section
           className="relative py-20 md:py-24 text-center overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #2A5F7A, #3D7A97)" }}
+          style={{ background: "linear-gradient(135deg, #4A7F93, #5A93A6)" }}
           aria-label="Prenota una visita"
         >
           <div className="absolute -left-10 top-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] pointer-events-none select-none" aria-hidden="true">
-            <Image src="/images/logo-federico-transparent.png" alt="" width={400} height={400} className="object-contain brightness-0 invert opacity-[0.05]" />
+            <Image src="/images/logo-dryouth-transparent.png" alt="" width={400} height={400} className="object-contain brightness-0 invert opacity-[0.05]" />
           </div>
           <div className="relative z-10 max-w-xl mx-auto px-5 md:px-10">
             <FadeIn>
