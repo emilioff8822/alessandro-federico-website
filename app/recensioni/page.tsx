@@ -100,7 +100,7 @@ export default function RecensioniPage() {
           aria-label="Prenota una visita"
         >
           <div className="absolute -left-10 top-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] pointer-events-none select-none" aria-hidden="true">
-            <Image src="/images/logo-dryouth-transparent.png" alt="" width={400} height={400} className="object-contain brightness-0 invert opacity-[0.05]" />
+            <Image src="/images/logo-dryouth-symbol.png" alt="" width={400} height={400} className="object-contain brightness-0 invert opacity-[0.05]" />
           </div>
           <div className="relative z-10 max-w-xl mx-auto px-5 md:px-10">
             <FadeIn>

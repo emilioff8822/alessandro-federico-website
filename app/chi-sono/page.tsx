@@ -216,7 +216,10 @@ export default function ChiSonoPage() {
           aria-label="Contattami"
         >
           <div className="absolute -left-10 top-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] pointer-events-none select-none" aria-hidden="true">
-            <Image src="/images/logo-dryouth-transparent.png" alt="" width={400} height={400} className="object-contain brightness-0 invert opacity-[0.05]" />
+            <Image src="/images/logo-dryouth-symbol.png" alt="" width={400} height={400} className="object-contain brightness-0 invert opacity-[0.05]" />
+          </div>
+          <div className="absolute -right-14 bottom-4 w-[180px] h-[180px] md:w-[240px] md:h-[240px] pointer-events-none select-none" aria-hidden="true">
+            <Image src="/images/logo-dryouth-transparent.png" alt="" width={240} height={240} className="object-contain brightness-0 invert opacity-[0.04]" />
           </div>
           <div className="relative z-10 max-w-xl mx-auto px-5 md:px-10">
             <FadeIn>

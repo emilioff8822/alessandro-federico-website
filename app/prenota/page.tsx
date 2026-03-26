@@ -26,7 +26,8 @@ export const metadata: Metadata = {
 const centri = [
   {
     nome: "Centro Medico Santagostino",
-    info: "Sedi milanesi · 4.7/5 · 581 recensioni",
+    descrizione: "Il Dr. Federico visita nelle sedi milanesi del Centro Medico Santagostino, con disponibilità in tempo reale.",
+    badge: "4.7/5 · 581 recensioni",
     gradiente: "linear-gradient(135deg, #7EC4D4 0%, #93D0DE 100%)",
     accent: "#3A8A9E",
     accentTesto: "#2D6E7E",
@@ -35,7 +36,8 @@ const centri = [
   },
   {
     nome: "iDoctors",
-    info: "Profilo verificato · 10/10 · 21 recensioni",
+    descrizione: "Profilo verificato su iDoctors. Consulta le prestazioni disponibili e le valutazioni dei pazienti.",
+    badge: "10/10 · 21 recensioni",
     gradiente: "linear-gradient(135deg, #82A8CC 0%, #97BBD8 100%)",
     accent: "#4A6FA5",
     accentTesto: "#3B5A8A",
@@ -44,7 +46,8 @@ const centri = [
   },
   {
     nome: "Cup Solidale",
-    info: "Centro Medico Italiano · Milano",
+    descrizione: "Presente su Cup Solidale presso il Centro Medico Italiano di Milano.",
+    badge: "Centro Medico Italiano · Milano",
     gradiente: "linear-gradient(135deg, #72B6C6 0%, #87C4D2 100%)",
     accent: "#2D7A8A",
     accentTesto: "#1E5F6E",
@@ -98,17 +101,21 @@ export default function PrenotaPage() {
 
         <Divider />
 
-        {/* ── Centri dove visita — card colorate ── */}
-        <section className="py-16 md:py-24" style={{ background: "#F4F9FB" }} aria-label="Centri dove visita">
+        {/* ── Centri dove visita — card grandi ── */}
+        <section className="py-16 md:py-24" style={{ background: "#F4F9FB" }} aria-label="Dove visita il dottore">
           <div className="mx-auto max-w-6xl px-5 md:px-10">
 
             <FadeIn>
-              <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-muted/60 mb-6 text-center">
-                Centri dove il Dr. Federico visita
+              <h2 className="font-heading text-3xl md:text-4xl text-text leading-[1.1] mb-3 text-center">
+                Dove visito
+              </h2>
+              <p className="font-sans text-sm text-muted text-center mb-12 max-w-md mx-auto leading-[1.8]">
+                Sono presente in diversi centri medici a Milano.
+                Per prenotare, contattami direttamente.
               </p>
             </FadeIn>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {centri.map((c, i) => (
                 <FadeIn key={c.nome} delay={i * 0.08}>
                   <div
@@ -129,14 +136,17 @@ export default function PrenotaPage() {
                       </span>
                     </div>
                     <div className="p-6 flex flex-col flex-1">
-                      <h2 className="font-heading text-xl mb-2" style={{ color: c.accentTesto }}>{c.nome}</h2>
+                      <h3 className="font-heading text-xl mb-3" style={{ color: c.accentTesto }}>{c.nome}</h3>
+                      <p className="font-sans text-sm text-muted leading-[1.75] flex-1 mb-4">
+                        {c.descrizione}
+                      </p>
                       <div
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full self-start mt-auto"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full self-start"
                         style={{ background: c.bgIcona }}
                       >
                         <div className="w-1.5 h-1.5 rounded-full" style={{ background: c.accent }} />
                         <span className="font-sans text-[10px] font-medium" style={{ color: c.accent }}>
-                          {c.info}
+                          {c.badge}
                         </span>
                       </div>
                     </div>
@@ -144,94 +154,88 @@ export default function PrenotaPage() {
                 </FadeIn>
               ))}
             </div>
+          </div>
+        </section>
 
-            {/* Orari */}
-            <FadeIn delay={0.25}>
-              <div
-                className="rounded-2xl overflow-hidden border mb-12"
-                style={{
-                  background: "#FFFFFF",
-                  borderColor: "rgba(122,174,201,0.18)",
-                  boxShadow: "0 4px 20px rgba(17,24,39,0.04)",
-                }}
-              >
-                <div
-                  className="px-7 py-4 flex items-center gap-3"
-                  style={{ background: "linear-gradient(135deg, #8ABFD0 0%, #9DCBDA 100%)" }}
-                >
-                  <Clock strokeWidth={1.3} className="w-4 h-4 text-white/80" />
-                  <span className="font-sans text-[9px] uppercase tracking-[0.18em] text-white/80">
-                    Orari dello studio
-                  </span>
-                </div>
-                <div className="p-7">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-2.5">
-                    {siteConfig.orari.map((o) => (
-                      <div
-                        key={o.giorno}
-                        className="flex items-center justify-between pb-2.5 border-b last:border-b-0"
-                        style={{ borderColor: "rgba(17,24,39,0.06)" }}
-                      >
-                        <span className="font-sans text-xs text-muted">{o.giorno}</span>
-                        <span
-                          className="font-sans text-xs font-medium"
-                          style={{ color: o.ore === "Chiuso" ? "rgba(17,24,39,0.28)" : "#4E8DA3" }}
-                        >
-                          {o.ore}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
+        {/* ── CTA Contattami + Orari — layout bilanciato ── */}
+        <section className="py-16 md:py-20 bg-white" aria-label="Contatta e prenota">
+          <div className="mx-auto max-w-6xl px-5 md:px-10">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
 
-            {/* CTA — Contattami */}
-            <FadeIn delay={0.3}>
-              <div
-                className="rounded-3xl overflow-hidden border"
-                style={{
-                  background: "#FFFFFF",
-                  borderColor: "rgba(61,122,151,0.15)",
-                  boxShadow: "0 8px 40px rgba(17,24,39,0.06)",
-                }}
-              >
+              {/* CTA grande — 3 colonne */}
+              <FadeIn className="md:col-span-3">
                 <div
-                  className="px-8 py-6 md:px-10 md:py-7 flex items-center gap-3"
-                  style={{ background: "linear-gradient(135deg, #5A93A6 0%, #6D9FB2 100%)" }}
+                  className="rounded-2xl overflow-hidden h-full"
+                  style={{
+                    background: "linear-gradient(135deg, #5A93A6 0%, #6D9FB2 100%)",
+                    boxShadow: "0 8px 40px rgba(90,147,166,0.2)",
+                  }}
                 >
-                  <Mail strokeWidth={1.3} className="w-5 h-5 text-white/80" />
-                  <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/80">
-                    Prenota direttamente
-                  </span>
-                </div>
-                <div className="p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10">
-                  <div className="flex-1">
-                    <h2 className="font-heading text-2xl md:text-3xl mb-3" style={{ color: "#3B6F88" }}>
-                      Contattami per prenotare
+                  <div className="p-8 md:p-10 flex flex-col justify-center h-full">
+                    <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/50 mb-4">
+                      Prenota direttamente
+                    </p>
+                    <h2 className="font-heading text-2xl md:text-3xl text-white mb-4 leading-[1.15]">
+                      Contattami per<br className="hidden md:block" /> prenotare la tua visita
                     </h2>
-                    <p className="font-sans text-sm text-muted leading-[1.85] max-w-lg">
+                    <p className="font-sans text-sm text-white/65 leading-[1.85] mb-8 max-w-md">
                       Compila il modulo di contatto indicando il tipo di visita e la tua
                       disponibilità. Rispondo personalmente entro 24 ore.
                     </p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-                    <CTAButton text="Scrivimi" href="/contatti" solid />
-                    {siteConfig.phonePlain && (
-                      <a
-                        href={`tel:${siteConfig.phonePlain}`}
-                        className="inline-flex items-center justify-center gap-2 font-sans text-[13px] uppercase tracking-[0.15em] font-medium px-7 py-3.5 border-[1.5px] transition-all duration-300 hover:border-[#4E8DA3] hover:text-[#4E8DA3]"
-                        style={{ borderColor: "rgba(17,24,39,0.15)", color: "rgba(17,24,39,0.45)" }}
-                      >
-                        <Phone strokeWidth={1.5} className="w-3.5 h-3.5" />
-                        Chiama
-                      </a>
-                    )}
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <CTAButton text="Scrivimi" href="/contatti" inverted />
+                      {siteConfig.phonePlain && (
+                        <a
+                          href={`tel:${siteConfig.phonePlain}`}
+                          className="inline-flex items-center justify-center gap-2 font-sans text-[13px] uppercase tracking-[0.15em] font-medium px-7 py-3.5 border-[1.5px] border-white/30 text-white/80 transition-all duration-300 hover:bg-white hover:text-[#5A93A6] hover:border-white"
+                        >
+                          <Phone strokeWidth={1.5} className="w-3.5 h-3.5" />
+                          Chiama
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </FadeIn>
+              </FadeIn>
 
+              {/* Orari — 2 colonne */}
+              <FadeIn delay={0.15} className="md:col-span-2">
+                <div
+                  className="rounded-2xl border h-full flex flex-col"
+                  style={{
+                    background: "#FFFFFF",
+                    borderColor: "rgba(122,174,201,0.18)",
+                    boxShadow: "0 4px 24px rgba(17,24,39,0.05)",
+                  }}
+                >
+                  <div className="px-6 py-4 flex items-center gap-3 border-b" style={{ borderColor: "rgba(17,24,39,0.06)" }}>
+                    <Clock strokeWidth={1.3} className="w-4 h-4 text-accent" />
+                    <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-muted/60">
+                      Orari dello studio
+                    </span>
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col justify-center">
+                    <div className="flex flex-col gap-3">
+                      {siteConfig.orari.map((o) => (
+                        <div
+                          key={o.giorno}
+                          className="flex items-center justify-between"
+                        >
+                          <span className="font-sans text-sm text-muted">{o.giorno}</span>
+                          <span
+                            className="font-sans text-sm font-medium"
+                            style={{ color: o.ore === "Chiuso" ? "rgba(17,24,39,0.25)" : "#5A93A6" }}
+                          >
+                            {o.ore}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
+
+            </div>
           </div>
         </section>
 
@@ -242,7 +246,7 @@ export default function PrenotaPage() {
           aria-label="Scopri le specialità"
         >
           <div className="absolute -right-10 top-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] pointer-events-none select-none" aria-hidden="true">
-            <Image src="/images/logo-dryouth-transparent.png" alt="" width={400} height={400} className="object-contain brightness-0 invert opacity-[0.05]" />
+            <Image src="/images/logo-dryouth-symbol.png" alt="" width={400} height={400} className="object-contain brightness-0 invert opacity-[0.05]" />
           </div>
           <div className="relative z-10 max-w-xl mx-auto px-5 md:px-10">
             <FadeIn>

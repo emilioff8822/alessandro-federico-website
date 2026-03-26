@@ -30,13 +30,27 @@ export default function CTASection() {
         aria-hidden="true"
       >
         <Image
-          src="/images/logo-dryouth-transparent.png"
+          src="/images/logo-dryouth-symbol.png"
           alt=""
           width={500}
           height={500}
           className="object-contain brightness-0 invert opacity-[0.07]"
         />
       </motion.div>
+
+      {/* Logo completo DR YOUTH — a sinistra, non sovrappone il testo centrato */}
+      <div
+        className="absolute -left-16 bottom-6 w-[200px] h-[200px] md:w-[280px] md:h-[280px] pointer-events-none select-none"
+        aria-hidden="true"
+      >
+        <Image
+          src="/images/logo-dryouth-transparent.png"
+          alt=""
+          width={280}
+          height={280}
+          className="object-contain brightness-0 invert opacity-[0.045]"
+        />
+      </div>
 
       {/* Punto luce centrale */}
       <div

@@ -23,33 +23,33 @@ export const metadata: Metadata = {
 
 const areaThemes = {
   dermatologia: {
-    bannerGradient: "linear-gradient(135deg, #3A8A9E, #4D9DB2)",
-    accent: "#3A8A9E",
-    accentText: "#2D6E7E",
-    bgLight: "#F4F9FB",
-    bgMedium: "#E6F1F5",
+    bannerGradient: "linear-gradient(135deg, #4D9AAD, #62ADBE)",
+    accent: "#4D9AAD",
+    accentText: "#3D7E8E",
+    bgLight: "#F5FAFB",
+    bgMedium: "#EAF3F6",
     icon: <Stethoscope strokeWidth={1.2} className="w-7 h-7 text-white" />,
     label: "Dermatologia",
     buttonColor: {
-      default: "#3A8A9E",
-      hover: "#2D6E7E",
-      active: "#4D9DB2",
-      shadowRgb: "58, 138, 158",
+      default: "#4D9AAD",
+      hover: "#3D7E8E",
+      active: "#62ADBE",
+      shadowRgb: "77, 154, 173",
     },
   },
   "medicina-estetica": {
-    bannerGradient: "linear-gradient(135deg, #4A6FA5, #5E83B8)",
-    accent: "#4A6FA5",
-    accentText: "#3B5A8A",
-    bgLight: "#F4F6FB",
-    bgMedium: "#E8ECF5",
+    bannerGradient: "linear-gradient(135deg, #5B7EAE, #6E91BF)",
+    accent: "#5B7EAE",
+    accentText: "#4A6893",
+    bgLight: "#F5F7FB",
+    bgMedium: "#ECF0F6",
     icon: <Sparkles strokeWidth={1.2} className="w-7 h-7 text-white" />,
     label: "Medicina Estetica",
     buttonColor: {
-      default: "#4A6FA5",
-      hover: "#3B5A8A",
-      active: "#5E83B8",
-      shadowRgb: "74, 111, 165",
+      default: "#5B7EAE",
+      hover: "#4A6893",
+      active: "#6E91BF",
+      shadowRgb: "91, 126, 174",
     },
   },
 }
@@ -119,7 +119,7 @@ export default function SpecialitaPage() {
               >
                 {/* Logo watermark — sfondo decorativo nel banner */}
                 <div className="absolute -right-8 top-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[280px] md:h-[280px] pointer-events-none select-none" aria-hidden="true">
-                  <Image src="/images/logo-dryouth-transparent.png" alt="" width={280} height={280} className="object-contain brightness-0 invert opacity-[0.06]" />
+                  <Image src="/images/logo-dryouth-symbol.png" alt="" width={280} height={280} className="object-contain brightness-0 invert opacity-[0.06]" />
                 </div>
                 <div className="relative z-10 mx-auto max-w-6xl flex items-center gap-5">
                   <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/15 backdrop-blur-sm">
@@ -217,7 +217,10 @@ export default function SpecialitaPage() {
           aria-label="Prenota una visita"
         >
           <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[420px] md:h-[420px] pointer-events-none select-none" aria-hidden="true">
-            <Image src="/images/logo-dryouth-transparent.png" alt="" width={420} height={420} className="object-contain brightness-0 invert opacity-[0.05]" />
+            <Image src="/images/logo-dryouth-symbol.png" alt="" width={420} height={420} className="object-contain brightness-0 invert opacity-[0.05]" />
+          </div>
+          <div className="absolute -right-16 bottom-2 w-[180px] h-[180px] md:w-[260px] md:h-[260px] pointer-events-none select-none" aria-hidden="true">
+            <Image src="/images/logo-dryouth-transparent.png" alt="" width={260} height={260} className="object-contain brightness-0 invert opacity-[0.04]" />
           </div>
           <div className="relative z-10 max-w-xl mx-auto px-5 md:px-10">
             <FadeIn>

@@ -161,7 +161,7 @@ export default function SkinPage() {
           aria-label="Vuoi saperne di più?"
         >
           <div className="absolute -right-10 top-1/2 -translate-y-1/2 w-[280px] h-[280px] md:w-[380px] md:h-[380px] pointer-events-none select-none" aria-hidden="true">
-            <Image src="/images/logo-dryouth-transparent.png" alt="" width={380} height={380} className="object-contain brightness-0 invert opacity-[0.05]" />
+            <Image src="/images/logo-dryouth-symbol.png" alt="" width={380} height={380} className="object-contain brightness-0 invert opacity-[0.05]" />
           </div>
           <div className="relative z-10 max-w-xl mx-auto px-5 md:px-10">
             <FadeIn>
