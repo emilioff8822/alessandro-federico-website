@@ -91,29 +91,6 @@ const MAINTENANCE_HTML = `<!DOCTYPE html>
       font-size: 15px;
       color: #6B7280;
       line-height: 1.8;
-      margin-bottom: 2.5rem;
-    }
-
-    .divider {
-      width: 40px;
-      height: 1px;
-      background: rgba(77, 154, 173, 0.3);
-      margin: 0 auto 2rem;
-    }
-
-    .contact {
-      font-size: 13px;
-      color: #9CA3AF;
-    }
-
-    .contact a {
-      color: #5A93A6;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .contact a:hover {
-      color: #4D9AAD;
     }
 
     .bg-shape {
@@ -159,11 +136,6 @@ const MAINTENANCE_HTML = `<!DOCTYPE html>
       Torneremo online a breve.
     </p>
 
-    <div class="divider"></div>
-
-    <p class="contact">
-      Per urgenze: <a href="mailto:alfederico89@gmail.com">alfederico89@gmail.com</a>
-    </p>
   </div>
 </body>
 </html>`
