@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { macroAree, linkDellArea } from "@/data/servizi"
-import SectionLabel from "@/components/ui/SectionLabel"
 import FadeIn from "@/components/ui/FadeIn"
 
 const EASE = "ease-[cubic-bezier(0.22,1,0.36,1)]"
@@ -27,21 +26,27 @@ export default function MacroAreeCards() {
   }
 
   return (
-    <section className="py-20 md:py-28 bg-white" aria-label="Le specialità" id="specialita">
-      <div className="mx-auto max-w-[1320px] px-5 md:px-10">
-        <div className="text-center md:text-left max-w-2xl mb-12 md:mb-16 mx-auto md:mx-0">
-          <SectionLabel text="Le specialità" className="justify-center md:justify-start" />
-          <FadeIn>
-            <h2 className="font-heading text-3xl md:text-5xl leading-[1.1] mb-5">
-              Un approccio integrato
+    <section
+      className="section-y"
+      style={{ background: "linear-gradient(to bottom, var(--azzurro-chiaro) 0%, var(--bianco) 100%)" }}
+      aria-label="Le specialità"
+      id="specialita"
+    >
+      <div className="container-site">
+        <FadeIn>
+          <div className="text-center max-w-2xl mb-10 md:mb-14 mx-auto">
+            <p className="eyebrow text-[11px] text-blu-scuro mb-4">Le specialità</p>
+            <h2 className="font-heading titolo-sezione mb-4">
+              Un approccio integrato per la salute della pelle
             </h2>
-            <p className="text-base leading-[1.8]">
-              Quattro aree di competenza per la salute e la bellezza della pelle e dei capelli.
+            <p className="text-base leading-[1.75]">
+              Quattro aree di competenza, dalla diagnosi clinica ai trattamenti estetici e
+              dermochirurgici. Scegli un&apos;area per scoprire le prestazioni.
             </p>
-          </FadeIn>
-        </div>
+          </div>
+        </FadeIn>
 
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-2.5 md:gap-3">
           {macroAree.map((area, i) => {
             const on = active === area.id
             const show = on ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0"
@@ -51,7 +56,7 @@ export default function MacroAreeCards() {
               <FadeIn key={area.id} delay={i * 0.08}>
                 <div
                   onClick={() => onCardTap(area.id)}
-                  className="group relative h-[460px] sm:h-[500px] xl:h-[540px] rounded-[28px] overflow-hidden cursor-pointer isolate"
+                  className="group relative h-[440px] sm:h-[480px] xl:h-[520px] rounded-[16px] md:rounded-[20px] overflow-hidden cursor-pointer isolate"
                 >
                   <Image
                     src={area.immagine}

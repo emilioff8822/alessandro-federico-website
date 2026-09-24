@@ -4,8 +4,12 @@ import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion"
+import { ArrowRight, Phone } from "lucide-react"
 import { siteConfig } from "@/data/siteConfig"
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon"
 import BrandLockup from "./BrandLockup"
+
+const voci = siteConfig.navLinks.filter((l) => l.href !== "/prenota")
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -42,32 +46,42 @@ export default function Navbar() {
         }`}
       >
         <div
-          className="mx-auto flex max-w-[1320px] items-center justify-between px-5 md:px-10"
+          className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-5 md:px-10"
           style={{ height: "var(--header-h)" }}
         >
           <Link
             href="/"
             onClick={() => setMenuOpen(false)}
-            className="py-2"
+            className="py-2 shrink-0"
             aria-label="Homepage Dott. Alessandro Federico"
           >
             <BrandLockup priority />
           </Link>
 
-          <nav className="hidden xl:flex items-center gap-7" aria-label="Navigazione principale">
-            {siteConfig.navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={isActive(link.href) ? "page" : undefined}
-                className={`link-hover eyebrow text-[11.5px] tracking-[0.14em] transition-colors duration-300 ${
-                  isActive(link.href) ? "text-blu-scuro" : "text-grigio-testo hover:text-blu-scuro"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="hidden xl:flex items-center gap-8">
+            <nav className="flex items-center gap-[22px] 2xl:gap-7" aria-label="Navigazione principale">
+              {voci.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                  className={`link-hover eyebrow text-[11.5px] tracking-[0.12em] whitespace-nowrap transition-colors duration-300 ${
+                    isActive(link.href) ? "text-blu-scuro" : "text-grigio-testo hover:text-blu-scuro"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+            <Link
+              href="/prenota"
+              aria-current={isActive("/prenota") ? "page" : undefined}
+              className="btn btn-primary !py-2.5 !px-5"
+            >
+              Prenota
+              <ArrowRight strokeWidth={1.5} className="btn-arrow w-4 h-4" aria-hidden="true" />
+            </Link>
+          </div>
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -99,28 +113,53 @@ export default function Navbar() {
             style={{ top: "var(--header-h)" }}
             aria-label="Menu mobile"
           >
-            <ul className="flex flex-col items-center pt-6 pb-10 w-full" role="list">
-              {siteConfig.navLinks.map((link, i) => (
-                <motion.li
-                  key={link.href}
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.04 * i }}
-                  className="w-full max-w-sm border-b border-blu-notte/[0.07] last:border-b-0"
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    aria-current={isActive(link.href) ? "page" : undefined}
-                    className={`eyebrow text-[13px] tracking-[0.16em] min-h-[56px] flex items-center justify-center transition-colors duration-150 ${
-                      isActive(link.href) ? "text-blu-scuro" : "text-grigio-testo"
-                    }`}
+            <div className="mx-auto w-full max-w-md px-5 pt-4 pb-12">
+              <ul className="flex flex-col w-full" role="list">
+                {siteConfig.navLinks.map((link, i) => (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.04 * i }}
+                    className="border-b border-blu-notte/[0.08]"
                   >
-                    {link.label}
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
+                    <Link
+                      href={link.href}
+                      onClick={() => setMenuOpen(false)}
+                      aria-current={isActive(link.href) ? "page" : undefined}
+                      className={`eyebrow text-[13px] tracking-[0.14em] min-h-[58px] flex items-center justify-between transition-colors duration-150 ${
+                        isActive(link.href) ? "text-blu-scuro" : "text-grigio-testo"
+                      }`}
+                    >
+                      {link.label}
+                      <ArrowRight strokeWidth={1.3} className="w-4 h-4 text-brand-blu" aria-hidden="true" />
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+
+              <motion.div
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+                className="mt-8 flex flex-col gap-3"
+              >
+                <Link href="/prenota" onClick={() => setMenuOpen(false)} className="btn btn-primary w-full">
+                  Prenota una visita
+                  <ArrowRight strokeWidth={1.5} className="btn-arrow w-4 h-4" aria-hidden="true" />
+                </Link>
+                <div className="grid grid-cols-2 gap-3">
+                  <a href={siteConfig.segreteria.href} className="btn btn-outline !px-3">
+                    <Phone strokeWidth={1.5} className="w-4 h-4" aria-hidden="true" />
+                    Chiama
+                  </a>
+                  <a href={siteConfig.whatsapp.href} target="_blank" rel="noopener noreferrer" className="btn btn-outline !px-3">
+                    <WhatsAppIcon className="w-4 h-4" />
+                    WhatsApp
+                  </a>
+                </div>
+              </motion.div>
+            </div>
           </motion.nav>
         )}
       </AnimatePresence>

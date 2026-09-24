@@ -1,11 +1,9 @@
 import type { Metadata } from "next"
 import { Suspense } from "react"
-import Image from "next/image"
 import { MapPin, Phone, Mail } from "lucide-react"
 import PageTransition from "@/components/providers/PageTransition"
 import FadeIn from "@/components/ui/FadeIn"
 import TextReveal from "@/components/ui/TextReveal"
-import SectionLabel from "@/components/ui/SectionLabel"
 import ContactForm from "@/components/ui/ContactForm"
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon"
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd"
@@ -24,15 +22,14 @@ export const metadata: Metadata = {
 }
 
 const linkClass = "text-grigio-testo hover:text-blu-scuro transition-colors duration-300"
+const numeroClass = "text-[17px] text-blu-notte hover:text-blu-scuro transition-colors duration-300"
 
 function Blocco({ icon, titolo, children }: { icon: React.ReactNode; titolo: string; children: React.ReactNode }) {
   return (
-    <div className="h-full flex flex-col items-center text-center rounded-2xl bg-white border border-brand-blu/40 px-6 py-9 shadow-[0_2px_20px_rgba(30,53,80,0.05)]">
-      <div className="w-16 h-16 rounded-full bg-brand-blu text-blu-notte flex items-center justify-center mb-5">
-        {icon}
-      </div>
-      <h2 className="font-heading text-xl text-blu-notte mb-3">{titolo}</h2>
-      <div className="text-[15px] leading-[1.75]">{children}</div>
+    <div className="flex flex-col items-center text-center">
+      <span className="icon-circle w-14 h-14 mb-4">{icon}</span>
+      <h2 className="font-heading text-[26px] md:text-[28px] leading-tight text-blu-notte mb-2">{titolo}</h2>
+      <div className="text-[15px] leading-[1.6]">{children}</div>
     </div>
   )
 }
@@ -46,115 +43,103 @@ export default function PrenotaPage() {
         { name: "Home", url: "https://www.alessandrofederico.it" },
         { name: "Prenota", url: "https://www.alessandrofederico.it/prenota" },
       ]} />
-      <main>
+      <main className="bg-white">
 
-        <section className="relative bg-azzurro-chiaro py-16 md:py-24 overflow-hidden" aria-label="Prenota una visita">
-          <Image
-            src="/images/brand/simbolo-blu.png"
-            alt=""
-            width={700}
-            height={907}
-            aria-hidden="true"
-            className="absolute -right-12 -bottom-16 w-[220px] md:w-[320px] h-auto opacity-25 pointer-events-none select-none"
-          />
-          <div className="relative mx-auto max-w-6xl px-5 md:px-10 text-center md:text-left">
-            <SectionLabel text="Prenotazioni" className="justify-center md:justify-start" />
-            <h1 className="font-heading text-4xl md:text-6xl leading-[1.08] mb-6">
-              <TextReveal delay={0.15}>Prenota la tua visita.</TextReveal>
-            </h1>
-            <p className="text-base md:text-lg leading-[1.8] max-w-2xl mx-auto md:mx-0">
-              La prenotazione avviene direttamente con lo studio del Dott. Federico:
-              chiama la segreteria, scrivi su WhatsApp o invia un&apos;email.
+        <section className="container-site pt-12 md:pt-16 text-center" aria-label="Prenota una visita">
+          <h1 className="font-heading titolo-pagina mb-5">
+            <TextReveal delay={0.1}>Prenota la tua visita</TextReveal>
+          </h1>
+          <FadeIn delay={0.2}>
+            <p className="text-base leading-[1.7] max-w-[620px] mx-auto">
+              La cura della tua pelle comincia qui.
+              <br className="hidden sm:block" />{" "}
+              Prenota direttamente con lo studio del Dott. Federico: chiama la segreteria,
+              scrivi su WhatsApp o invia un&apos;email.
             </p>
-          </div>
+          </FadeIn>
         </section>
 
-        <section className="bg-white py-16 md:py-20" aria-label="Contatti">
-          <div className="mx-auto max-w-6xl px-5 md:px-10">
-            <address className="not-italic grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              <FadeIn className="h-full">
-                <Blocco icon={<MapPin strokeWidth={1.4} className="w-7 h-7" />} titolo="Indirizzo">
-                  {[milano, paola].map((s) => (
-                    <p key={s.id} className="mb-2 last:mb-0">
-                      <span className="block text-blu-notte">{s.citta}</span>
-                      <span className="whitespace-nowrap">{s.indirizzo}</span>
-                    </p>
-                  ))}
-                </Blocco>
-              </FadeIn>
-              <FadeIn delay={0.08} className="h-full">
-                <Blocco icon={<Phone strokeWidth={1.4} className="w-7 h-7" />} titolo={`Telefono – ${siteConfig.segreteria.label}`}>
-                  <a href={siteConfig.segreteria.href} className={`${linkClass} text-[17px]`}>
-                    {siteConfig.segreteria.numero}
-                  </a>
-                </Blocco>
-              </FadeIn>
-              <FadeIn delay={0.16} className="h-full">
-                <Blocco icon={<WhatsAppIcon className="w-7 h-7" />} titolo="WhatsApp – Dott. Alessandro Federico">
-                  <a href={siteConfig.whatsapp.href} target="_blank" rel="noopener noreferrer" className={`${linkClass} text-[17px]`}>
-                    {siteConfig.whatsapp.numero}
-                  </a>
-                </Blocco>
-              </FadeIn>
-              <FadeIn delay={0.24} className="h-full">
-                <Blocco icon={<Mail strokeWidth={1.4} className="w-7 h-7" />} titolo="Email">
-                  <a href={`mailto:${siteConfig.email}`} className={`${linkClass} break-all`}>
-                    {siteConfig.email}
-                  </a>
-                </Blocco>
-              </FadeIn>
-            </address>
-          </div>
-        </section>
-
-        <section className="bg-azzurro-chiaro py-16 md:py-24" aria-label="Richiedi un appuntamento">
-          <div className="mx-auto max-w-3xl px-5 md:px-10">
+        <section className="container-site pt-12 md:pt-16" aria-label="Contatti">
+          <address className="not-italic grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 pb-10 md:pb-12 border-b border-blu-notte/15">
             <FadeIn>
-              <div className="text-center mb-10">
-                <p className="eyebrow text-[11px] text-blu-scuro mb-4">Modulo di richiesta</p>
-                <h2 className="font-heading text-3xl md:text-4xl leading-[1.15] mb-4">Richiedi un appuntamento</h2>
-                <p className="text-[15px] leading-[1.8] max-w-lg mx-auto">
+              <Blocco icon={<MapPin strokeWidth={1.4} className="w-6 h-6" />} titolo="Indirizzo">
+                {[milano, paola].map((s) => (
+                  <p key={s.id} className="mb-1.5 last:mb-0">
+                    <span className="text-blu-notte">{s.citta}</span> – {s.indirizzo}
+                  </p>
+                ))}
+              </Blocco>
+            </FadeIn>
+            <FadeIn delay={0.06}>
+              <Blocco icon={<Phone strokeWidth={1.4} className="w-6 h-6" />} titolo="Telefono">
+                <p>{siteConfig.segreteria.label}</p>
+                <a href={siteConfig.segreteria.href} className={numeroClass}>
+                  {siteConfig.segreteria.numero}
+                </a>
+              </Blocco>
+            </FadeIn>
+            <FadeIn delay={0.12}>
+              <Blocco icon={<WhatsAppIcon className="w-6 h-6" />} titolo="WhatsApp">
+                <p>{siteConfig.name}</p>
+                <a href={siteConfig.whatsapp.href} target="_blank" rel="noopener noreferrer" className={numeroClass}>
+                  {siteConfig.whatsapp.numero}
+                </a>
+              </Blocco>
+            </FadeIn>
+            <FadeIn delay={0.18}>
+              <Blocco icon={<Mail strokeWidth={1.4} className="w-6 h-6" />} titolo="Email">
+                <a href={`mailto:${siteConfig.email}`} className={`${linkClass} break-all`}>
+                  {siteConfig.email}
+                </a>
+              </Blocco>
+            </FadeIn>
+          </address>
+        </section>
+
+        <section className="container-site pt-12 md:pt-16" aria-label="Richiedi un appuntamento">
+          <FadeIn>
+            <div className="mx-auto max-w-[880px] rounded-[20px] md:rounded-[24px] bg-blu-notte px-5 py-9 md:px-12 md:py-12">
+              <div className="text-center mb-8">
+                <h2 className="font-heading text-2xl md:text-[30px] text-white mb-3">Richiedi un appuntamento</h2>
+                <p className="text-[15px] leading-[1.7] text-white/80 max-w-md mx-auto">
                   Indica il tipo di visita e la sede che preferisci: verrai ricontattato per fissare l&apos;appuntamento.
                 </p>
               </div>
-              <div className="rounded-3xl bg-white border border-brand-blu/40 p-7 md:p-10 shadow-[0_2px_30px_rgba(30,53,80,0.06)]">
-                <Suspense>
-                  <ContactForm />
-                </Suspense>
-              </div>
-            </FadeIn>
-          </div>
+              <Suspense>
+                <ContactForm />
+              </Suspense>
+            </div>
+          </FadeIn>
         </section>
 
-        <section className="bg-white py-16 md:py-24" aria-label="Dove siamo">
-          <div className="mx-auto max-w-6xl px-5 md:px-10">
-            <FadeIn>
-              <h2 className="font-heading text-3xl md:text-4xl leading-[1.15] mb-10 text-center">Le sedi</h2>
-            </FadeIn>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {siteConfig.sedi.map((sede, i) => (
-                <FadeIn key={sede.id} delay={i * 0.1}>
+        <section id="sedi" className="container-site section-y" aria-label="Come raggiungerci">
+          <FadeIn>
+            <h2 className="font-heading titolo-sezione text-center mb-10 md:mb-12">Come raggiungerci</h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {siteConfig.sedi.map((sede, i) => (
+              <FadeIn key={sede.id} delay={i * 0.1}>
+                <div className="rounded-[20px] overflow-hidden aspect-[4/3] bg-azzurro-chiaro">
+                  <iframe
+                    title={`Mappa sede di ${sede.citta}`}
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(sede.mapsQuery)}&output=embed`}
+                    className="w-full h-full border-0"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="flex items-start gap-3 mt-5">
+                  <span className="icon-circle w-10 h-10">
+                    <MapPin strokeWidth={1.5} className="w-[18px] h-[18px]" />
+                  </span>
                   <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <MapPin strokeWidth={1.5} className="w-5 h-5 text-blu-scuro" />
-                      <p className="text-blu-notte text-[17px]">
-                        Sede di {sede.citta} <span className="text-grigio-testo">– {sede.indirizzo}</span>
-                      </p>
-                    </div>
-                    <div className="rounded-2xl overflow-hidden border border-brand-blu/40 aspect-[4/3] bg-azzurro-chiaro">
-                      <iframe
-                        title={`Mappa sede di ${sede.citta}`}
-                        src={`https://www.google.com/maps?q=${encodeURIComponent(sede.mapsQuery)}&output=embed`}
-                        className="w-full h-full border-0"
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        allowFullScreen
-                      />
-                    </div>
+                    <p className="text-blu-notte text-[17px] leading-tight">Sede di {sede.citta}</p>
+                    <p className="text-[14px]">{sede.indirizzo}, {sede.cap} {sede.citta.replace(/ \(.*\)/, "")} ({sede.provincia})</p>
                   </div>
-                </FadeIn>
-              ))}
-            </div>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </section>
 
