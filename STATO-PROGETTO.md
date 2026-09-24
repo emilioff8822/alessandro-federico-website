@@ -1,8 +1,39 @@
-# STATO PROGETTO — Sito Web Dr. Alessandro Federico
+# STATO PROGETTO — Sito Web Dott. Alessandro Federico
 
 > Documento di avanzamento aggiornato progressivamente.
 > Leggibile da zero da qualsiasi developer o AI senza contesto pregresso.
 > Contiene: stack, colori, font, struttura file, stato blocchi, regole operative.
+
+---
+
+## AGGIORNAMENTO SETTEMBRE 2026 — RISTRUTTURAZIONE BRAND "DR YOUTH"
+
+> Questa sezione prevale su palette, font, menu e pagine descritti più sotto
+> (che restano come storico).
+
+- **Palette**: variabili CSS in `app/globals.css` (`--brand-blu #92B5D9`, `--brand-grigio #939598`,
+  `--blu-scuro #3F6C9A`, `--blu-scuro-hover #2F5478`, `--blu-notte #1E3550`, `--grigio-testo #414042`,
+  `--azzurro-chiaro #EEF4FA`). Classi Tailwind: `bg-blu-scuro`, `text-blu-notte`, `bg-azzurro-chiaro`, ecc.
+  Mai testo bianco su `#92B5D9`.
+- **Font**: stack `"Biko", Montserrat`. I file Biko (woff2) non sono ancora arrivati: quando arrivano vanno in
+  `public/fonts/` e aggiunti con `src: url(...)` nei `@font-face` di `globals.css`. Zapfino solo dentro il logo.
+- **Loghi** (`public/images/brand/`), ricavati dal PDF ufficiale `Brand_DR_Youth_Guida.pdf`:
+  `logo-colori.png`, `logo-bianco.png`, `logo-social.png`, `simbolo-blu.png`, `simbolo-bianco.png`,
+  `wordmark-colori.png`, `wordmark-bianco.png`. Favicon, apple-icon e `opengraph-image.png` in `app/` = logo social.
+- **Menu**: Chi Sono · Specialità · Prima e Dopo · Recensioni · Malattie dermatologiche · Prenota.
+  `/contatti` e `/skin` eliminati, con redirect 301 in `next.config.ts`.
+- **Header** bianco con logo + sottotitolo "Dermatologia · Tricologia · Medicina Estetica".
+- **Pulsante INFO** flottante a rosellina (`components/layout/InfoFab.tsx`): WhatsApp, telefono segreteria, email.
+- **Home**: 4 card macro-aree con hover (`components/sections/MacroAreeCards.tsx`). Foto segnaposto in
+  `public/images/macro-aree/` da sostituire con quelle definitive.
+- **Specialità**: 4 macro-aree (Dermatologia, Medicina Estetica, Tricologia, Dermochirurgia), dati in `data/servizi.ts`.
+- **Malattie dermatologiche**: 76 voci in `data/malattie.ts`, pagina elenco con ricerca e indice A–Z, schede
+  `/malattie-dermatologiche/[slug]`. Descrizioni vuote: vanno compilate nel campo `descrizione`.
+- **Prenota**: blocchi Indirizzo (Milano – Via Fratelli Bronzetti 18, Paola – Corso Roma 39), Segreteria Stefania
+  393 873 6690, WhatsApp 377 342 9123, email dr.federico.a@gmail.com, modulo Resend, mappe Google. Niente orari,
+  niente piattaforme esterne.
+- **Footer**: blu notte, 3 colonne, senza orari e senza social.
+- **In tutti i testi "Dott."**, mai "Dr." (il logo grafico mantiene "DR").
 
 ---
 

@@ -1,63 +1,54 @@
 import type { Metadata } from "next"
-import { DM_Serif_Display, DM_Sans } from "next/font/google"
+import { Montserrat } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
+import InfoFab from "@/components/layout/InfoFab"
 import SmoothScroll from "@/components/providers/SmoothScroll"
 import StructuredData from "@/components/seo/StructuredData"
 import { siteConfig } from "@/data/siteConfig"
 
-const dmSerif = DM_Serif_Display({
-  variable: "--font-dm-serif",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  display: "swap",
-})
-
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500"],
   display: "swap",
 })
 
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#FFFFFF",
 }
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Dr. Alessandro Federico | Dermatologo Milano — Medicina Estetica",
-    template: "%s | Dr. Alessandro Federico",
+    default: "Dott. Alessandro Federico | Dermatologo a Milano e Paola — Tricologia e Medicina Estetica",
+    template: "%s | Dott. Alessandro Federico",
   },
   description:
-    "Dermatologo e medico estetico a Milano. Visita dermatologica, dermatoscopia, tricologia, filler, botox e peeling. Prenota una visita con il Dr. Federico.",
+    "Dermatologo a Milano e Paola (CS). Visita dermatologica, mappatura dei nei, tricologia, dermochirurgia e medicina estetica. Prenota una visita con il Dott. Federico.",
   keywords: [
     "dermatologo Milano",
+    "dermatologo Paola",
+    "dermatologo Cosenza",
+    "tricologo Milano",
     "medico estetico Milano",
-    "dermatologia Milano",
-    "filler Milano",
-    "botox Milano",
-    "dermatologo",
-    "medicina estetica Milano",
-    "tricologia Milano",
-    "dermatoscopia Milano",
-    "peeling Milano",
-    "Dr. Alessandro Federico",
-    "dermatologo Italia",
+    "mappatura nei Milano",
+    "dermochirurgia Milano",
+    "visita dermatologica Milano",
+    "Dott. Alessandro Federico",
   ],
-  authors: [{ name: "Dr. Alessandro Federico" }],
+  authors: [{ name: "Dott. Alessandro Federico" }],
   openGraph: {
     type: "website",
     locale: "it_IT",
     url: siteConfig.url,
-    siteName: "Dr. Alessandro Federico — Dermatologo Milano",
-    title: "Dr. Alessandro Federico | Dermatologo e Medico Estetico Milano",
+    siteName: "Dott. Alessandro Federico — Dermatologo",
+    title: "Dott. Alessandro Federico | Dermatologia, Tricologia e Medicina Estetica",
     description:
-      "Specialista in dermatologia e medicina estetica a Milano. Prenota una visita.",
+      "Dermatologo a Milano e Paola (CS). Dermatologia clinica, tricologia, dermochirurgia e medicina estetica.",
   },
   twitter: {
     card: "summary_large_image",
@@ -86,16 +77,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="it" dir="ltr" className={`${dmSerif.variable} ${dmSans.variable}`} suppressHydrationWarning>
+    <html lang="it" dir="ltr" className={montserrat.variable} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <StructuredData />
         <Navbar />
         <SmoothScroll>
-          <div className="pt-[68px]">
+          <div style={{ paddingTop: "var(--header-h)" }}>
             {children}
             <Footer />
           </div>
         </SmoothScroll>
+        <InfoFab />
       </body>
     </html>
   )

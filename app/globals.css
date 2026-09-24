@@ -1,91 +1,211 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans:    var(--font-dm-sans);
-  --font-heading: var(--font-dm-serif);
+/* ── Brand identity DR YOUTH ── */
+:root {
+  --brand-blu:        #92B5D9;
+  --brand-grigio:     #939598;
+  --blu-scuro:        #3F6C9A;
+  --blu-scuro-hover:  #2F5478;
+  --blu-notte:        #1E3550;
+  --grigio-testo:     #414042;
+  --azzurro-chiaro:   #EEF4FA;
+  --bianco:           #FFFFFF;
+  --whatsapp:         #25D366;
 
-  --color-bg:       #FFFFFF;
-  --color-surface:  #F4F7FA;
+  --header-h: 76px;
 
-  --color-text:  #111827;
-  --color-muted: #4B5563;
-  --color-faint: #9CA3AF;
-
-  --color-accent:      #7AAEC9;
-  --color-accent-dark: #4A7D9A;
-
-  --color-border:       rgba(17, 24, 39, 0.12);
-  --color-border-hover: rgba(17, 24, 39, 0.22);
-
-  --color-white: #FFFFFF;
+  color-scheme: light;
 }
 
-:root { color-scheme: light; }
-
-html {
-  scroll-behavior: auto !important;
-  scroll-padding-top: 68px;
+@media (min-width: 1024px) {
+  :root { --header-h: 92px; }
 }
 
-body {
-  background-color: #FFFFFF;
-  color: #111827;
-  font-family: var(--font-dm-sans), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+/*
+ * Biko (font del logo) non è su Google Fonts: quando arrivano i file woff2
+ * vanno messi in /public/fonts e aggiunti qui sotto con src: url(...).
+ */
+@font-face {
+  font-family: "Biko";
+  src: local("Biko"), local("Biko Regular"), local("Biko-Regular");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Biko";
+  src: local("Biko Light"), local("Biko-Light");
+  font-weight: 300;
+  font-display: swap;
 }
 
+@theme inline {
+  --font-sans:    "Biko", var(--font-montserrat), "Montserrat", sans-serif;
+  --font-heading: "Biko", var(--font-montserrat), "Montserrat", sans-serif;
 
-.link-hover {
-  position: relative;
+  --color-brand-blu:       var(--brand-blu);
+  --color-brand-grigio:    var(--brand-grigio);
+  --color-blu-scuro:       var(--blu-scuro);
+  --color-blu-scuro-hover: var(--blu-scuro-hover);
+  --color-blu-notte:       var(--blu-notte);
+  --color-grigio-testo:    var(--grigio-testo);
+  --color-azzurro-chiaro:  var(--azzurro-chiaro);
+  --color-bianco:          var(--bianco);
+  --color-whatsapp:        var(--whatsapp);
+
+  --color-bg:      var(--bianco);
+  --color-surface: var(--azzurro-chiaro);
+  --color-text:    var(--blu-notte);
+  --color-muted:   var(--grigio-testo);
+  --color-accent:  var(--blu-scuro);
+  --color-border:  rgba(30, 53, 80, 0.12);
 }
+
+@layer base {
+  html {
+    scroll-behavior: auto !important;
+    scroll-padding-top: calc(var(--header-h) + 16px);
+  }
+
+  body {
+    background-color: var(--bianco);
+    color: var(--grigio-testo);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    color: var(--blu-notte);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+/* Occhielli, sottotitoli, voci di menu: Biko Light maiuscolo spaziato */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+/* ── Bottoni ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 2rem;
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+  user-select: none;
+  cursor: pointer;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: var(--blu-scuro);
+  border-color: var(--blu-scuro);
+  color: var(--bianco);
+}
+.btn-primary:hover {
+  background: var(--blu-scuro-hover);
+  border-color: var(--blu-scuro-hover);
+  box-shadow: 0 10px 28px rgba(30, 53, 80, 0.18);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--blu-notte);
+  color: var(--blu-notte);
+}
+.btn-outline:hover {
+  background: var(--blu-notte);
+  color: var(--bianco);
+}
+
+.btn-inverted {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.7);
+  color: var(--bianco);
+}
+.btn-inverted:hover {
+  background: var(--bianco);
+  border-color: var(--bianco);
+  color: var(--blu-notte);
+}
+
+.btn-light {
+  background: var(--brand-blu);
+  border-color: var(--brand-blu);
+  color: var(--blu-notte);
+}
+.btn-light:hover {
+  background: var(--bianco);
+  border-color: var(--bianco);
+}
+
+@media (hover: hover) {
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: scale(0.97); }
+}
+
+/* ── Link ── */
+.link-hover { position: relative; }
 .link-hover::after {
   content: "";
   position: absolute;
-  bottom: -2px;
+  bottom: -4px;
   left: 0;
   width: 100%;
-  height: 1.5px;
-  background: var(--color-accent);
+  height: 1px;
+  background: currentColor;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.link-hover:hover::after {
-  transform: scaleX(1);
-}
+.link-hover:hover::after,
+.link-hover[aria-current="page"]::after { transform: scaleX(1); }
 
 .footer-link {
   display: inline-block;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
 }
-.footer-link:hover {
-  transform: translateX(4px);
+.footer-link:hover { transform: translateX(4px); }
+
+/* ── Citazioni ── */
+.citazione {
+  border-left: 3px solid var(--brand-blu);
+  padding: 0.25rem 0 0.25rem 1.75rem;
+}
 }
 
 ::-webkit-scrollbar       { width: 6px; }
-::-webkit-scrollbar-track { background: #FFFFFF; }
-::-webkit-scrollbar-thumb { background: rgba(122, 174, 201, 0.3); border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(122, 174, 201, 0.5); }
+::-webkit-scrollbar-track { background: var(--bianco); }
+::-webkit-scrollbar-thumb { background: rgba(146, 181, 217, 0.5); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand-blu); }
 
 ::selection {
-  background: rgba(122, 174, 201, 0.18);
-  color: #111827;
+  background: rgba(146, 181, 217, 0.35);
+  color: var(--blu-notte);
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
-}
+* { -webkit-tap-highlight-color: transparent; }
 
 @media (hover: none) and (pointer: coarse) {
   a:active, button:active {
     opacity: 0.88;
     transition: opacity 0.12s ease-out;
-  }
-
-  * {
-    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -95,14 +215,3 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
-
-/* ── Stili articoli blog (prose-skin) ── */
-.prose-skin p          { margin-bottom: 1.4em; }
-.prose-skin h2         { font-family: var(--font-heading); font-size: 1.5rem; color: #111827; margin-top: 2em; margin-bottom: 0.6em; line-height: 1.2; }
-.prose-skin h3         { font-family: var(--font-heading); font-size: 1.2rem; color: #111827; margin-top: 1.6em; margin-bottom: 0.5em; }
-.prose-skin ul         { list-style: none; padding: 0; margin-bottom: 1.4em; }
-.prose-skin ul li      { position: relative; padding-left: 1.4em; margin-bottom: 0.5em; color: #4B5563; }
-.prose-skin ul li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; border-radius: 50%; background: #7AAEC9; }
-.prose-skin strong     { font-weight: 600; color: #111827; }
-.prose-skin a          { color: #3A8A9E; text-decoration: underline; text-decoration-color: rgba(58,138,158,0.3); }
-.prose-skin a:hover    { text-decoration-color: #3A8A9E; }

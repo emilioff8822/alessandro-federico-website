@@ -2,15 +2,15 @@ import type { MetadataRoute } from "next"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Dr. Alessandro Federico — Dermatologo Milano",
-    short_name: "Dr. Federico",
-    description: "Dermatologo e medico estetico a Milano",
+    name: "Dott. Alessandro Federico — Dermatologo",
+    short_name: "Dott. Federico",
+    description: "Dermatologia, Tricologia e Medicina Estetica a Milano e Paola (CS)",
     start_url: "/",
     display: "standalone",
     background_color: "#FFFFFF",
-    theme_color: "#7AAEC9",
+    theme_color: "#1E3550",
     icons: [
-      { src: "/icon.png", sizes: "any", type: "image/png" },
+      { src: "/icon.png", sizes: "512x512", type: "image/png" },
     ],
   }
 }

@@ -3,23 +3,30 @@
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import Image from "next/image"
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion"
 import { siteConfig } from "@/data/siteConfig"
-
-const GRADIENT = "linear-gradient(135deg, #5A93A6 0%, #6D9FB2 100%)"
+import BrandLockup from "./BrandLockup"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
 
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 50, restDelta: 0.001 })
 
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`)
+
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth >= 1024) setMenuOpen(false) }
+    const onResize = () => { if (window.innerWidth >= 1280) setMenuOpen(false) }
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
     window.addEventListener("resize", onResize)
-    return () => window.removeEventListener("resize", onResize)
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => {
+      window.removeEventListener("resize", onResize)
+      window.removeEventListener("scroll", onScroll)
+    }
   }, [])
 
   useEffect(() => {
@@ -30,48 +37,31 @@ export default function Navbar() {
   return (
     <>
       <header
-        className="fixed inset-x-0 top-0 z-50"
-        style={{ background: GRADIENT }}
+        className={`fixed inset-x-0 top-0 z-50 bg-white transition-shadow duration-300 ${
+          scrolled || menuOpen ? "shadow-[0_1px_0_rgba(30,53,80,0.08),0_8px_24px_rgba(30,53,80,0.05)]" : ""
+        }`}
       >
-        <div className="mx-auto flex h-[68px] max-w-6xl items-center justify-between px-5 md:px-10">
-
-          {/* Identità — logo + tipografia */}
+        <div
+          className="mx-auto flex max-w-[1320px] items-center justify-between px-5 md:px-10"
+          style={{ height: "var(--header-h)" }}
+        >
           <Link
             href="/"
             onClick={() => setMenuOpen(false)}
-            className="group flex items-center gap-3 py-2"
-            aria-label="Homepage Dr. Alessandro Federico"
+            className="py-2"
+            aria-label="Homepage Dott. Alessandro Federico"
           >
-            <div className="relative w-[28px] h-[28px] flex-shrink-0">
-              <Image
-                src="/images/logo-dryouth-symbol.png"
-                alt="Logo Dr. Youth — Alessandro Federico"
-                width={28}
-                height={28}
-                className="object-contain brightness-0 invert"
-                priority
-              />
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="font-heading text-[15px] text-white tracking-wide group-hover:text-white/90 transition-colors duration-300">
-                Dr. Alessandro Federico
-              </span>
-              <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/50 mt-0.5 hidden sm:block">
-                Dermatologo · Medicina Estetica
-              </span>
-            </div>
+            <BrandLockup priority />
           </Link>
 
-          {/* Nav desktop */}
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Navigazione principale">
+          <nav className="hidden xl:flex items-center gap-7" aria-label="Navigazione principale">
             {siteConfig.navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`link-hover font-sans text-[13px] tracking-wide transition-colors duration-300 ${
-                  pathname === link.href
-                    ? "text-white"
-                    : "text-white/55 hover:text-white"
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`link-hover eyebrow text-[11.5px] tracking-[0.14em] transition-colors duration-300 ${
+                  isActive(link.href) ? "text-blu-scuro" : "text-grigio-testo hover:text-blu-scuro"
                 }`}
               >
                 {link.label}
@@ -79,27 +69,24 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Hamburger mobile */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden flex flex-col items-center justify-center w-10 h-10 gap-[5px]"
+            className="xl:hidden flex flex-col items-center justify-center w-11 h-11 gap-[6px] -mr-2"
             aria-label={menuOpen ? "Chiudi menu" : "Apri menu"}
             aria-expanded={menuOpen}
           >
-            <span className={`block h-px w-[22px] bg-white/80 transition-all duration-300 origin-center ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`} />
-            <span className={`block h-px w-[22px] bg-white/80 transition-all duration-300 origin-center ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`block h-px w-[22px] bg-white/80 transition-all duration-300 origin-center ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`} />
+            <span className={`block h-px w-6 bg-blu-notte transition-all duration-300 origin-center ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`} />
+            <span className={`block h-px w-6 bg-blu-notte transition-all duration-300 origin-center ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block h-px w-6 bg-blu-notte transition-all duration-300 origin-center ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`} />
           </button>
         </div>
 
-        {/* Barra progresso scroll */}
         <motion.div
           style={{ scaleX, transformOrigin: "left" }}
-          className="h-px bg-white/20"
+          className="h-[2px] bg-brand-blu/70"
         />
       </header>
 
-      {/* Menu mobile — slide down, voci centrate */}
       <AnimatePresence>
         {menuOpen && (
           <motion.nav
@@ -108,25 +95,30 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-0 top-[68px] z-40 lg:hidden"
-            style={{ background: GRADIENT }}
+            className="fixed inset-x-0 bottom-0 z-40 xl:hidden bg-white overflow-y-auto"
+            style={{ top: "var(--header-h)" }}
             aria-label="Menu mobile"
           >
-            <ul className="flex flex-col items-center py-4 divide-y divide-white/10 w-full" role="list">
-              {siteConfig.navLinks.map((link) => (
-                <li key={link.href} className="w-full text-center">
+            <ul className="flex flex-col items-center pt-6 pb-10 w-full" role="list">
+              {siteConfig.navLinks.map((link, i) => (
+                <motion.li
+                  key={link.href}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.04 * i }}
+                  className="w-full max-w-sm border-b border-blu-notte/[0.07] last:border-b-0"
+                >
                   <Link
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className={`block font-sans text-[15px] py-[14px] min-h-[48px] flex items-center justify-center transition-colors duration-150 ${
-                      pathname === link.href
-                        ? "text-white font-medium"
-                        : "text-white/60 hover:text-white"
+                    aria-current={isActive(link.href) ? "page" : undefined}
+                    className={`eyebrow text-[13px] tracking-[0.16em] min-h-[56px] flex items-center justify-center transition-colors duration-150 ${
+                      isActive(link.href) ? "text-blu-scuro" : "text-grigio-testo"
                     }`}
                   >
                     {link.label}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.nav>

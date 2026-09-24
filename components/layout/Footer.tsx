@@ -2,129 +2,80 @@ import Link from "next/link"
 import Image from "next/image"
 import { siteConfig } from "@/data/siteConfig"
 
-const GRADIENT = "linear-gradient(135deg, #5A93A6 0%, #6D9FB2 100%)"
+const labelClass = "eyebrow text-[10.5px] text-brand-blu mb-5"
+const valueLink = "text-white/90 hover:text-brand-blu transition-colors duration-300"
 
 export default function Footer() {
   const year = new Date().getFullYear()
+  const [milano, paola] = siteConfig.sedi
 
   return (
-    <footer
-      className="py-14 px-5 md:px-10"
-      style={{ background: GRADIENT }}
-      aria-label="Footer"
-    >
-      <div className="mx-auto max-w-6xl">
+    <footer className="bg-blu-notte text-white" aria-label="Footer">
+      <div className="mx-auto max-w-[1320px] px-5 md:px-10 pt-16 md:pt-20 pb-24 md:pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1.3fr_1fr] gap-12 md:gap-10 text-center md:text-left">
 
-        {/* Logo completo — DR YOUTH / Alessandro Federico */}
-        <div className="flex flex-col items-center mb-10">
-          <div className="relative w-[140px] h-[140px] mb-1">
+          <div className="flex flex-col items-center md:items-start">
             <Image
-              src="/images/logo-dryouth-transparent.png"
-              alt="Logo Dr. Youth — Alessandro Federico"
-              width={140}
-              height={140}
-              className="object-contain brightness-0 invert opacity-75"
+              src="/images/brand/logo-bianco.png"
+              alt="DR YOUTH — Alessandro Federico"
+              width={700}
+              height={1005}
+              className="w-[120px] h-auto mb-5"
             />
-          </div>
-          <p className="text-[10px] text-white/40 tracking-wider uppercase mt-1">
-            Dermatologo · Medicina Estetica · Milano
-          </p>
-        </div>
-
-        <div className="w-16 h-px bg-white/15 mx-auto mb-10" />
-
-        {/* Griglia 3 colonne — su mobile impilate e centrate */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-10 text-center md:text-left">
-
-          {/* Colonna 1: identità */}
-          <div>
-            <p className="font-heading text-base text-white mb-1">
-              {siteConfig.name}
+            <p className="eyebrow text-[9.5px] tracking-[0.18em] text-white/75 mb-8 leading-relaxed">
+              {siteConfig.sottotitolo}
             </p>
-            <p className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/40 mb-4">
-              {siteConfig.role}
-            </p>
-            {siteConfig.phonePlain && (
-              <a
-                href={`tel:${siteConfig.phonePlain}`}
-                className="block font-sans text-sm text-white/60 py-0.5 hover:text-white transition-colors duration-300"
-              >
-                {siteConfig.phone}
-              </a>
-            )}
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="block font-sans text-sm text-white/60 py-0.5 hover:text-white transition-colors duration-300"
-            >
-              {siteConfig.email}
-            </a>
+            <Link href="/prenota" className="btn btn-light">
+              Prenota un appuntamento
+            </Link>
           </div>
 
-          {/* Colonna 2: studio */}
           <div>
-            <p className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/40 mb-4">
-              Studio
-            </p>
-            {siteConfig.address && siteConfig.address !== "—" ? (
-              <a
-                href={`https://maps.google.com/?q=${encodeURIComponent(siteConfig.address + " " + siteConfig.city)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-sans text-sm text-white/60 hover:text-white transition-colors duration-300 leading-relaxed"
-              >
-                {siteConfig.address}<br />
-                {siteConfig.cap} {siteConfig.city}
-              </a>
-            ) : (
-              <p className="font-sans text-sm text-white/30 italic">Da definire</p>
-            )}
+            <p className={labelClass}>Dettagli e contatti</p>
+            <ul className="space-y-3.5 text-[14px] leading-relaxed" role="list">
+              <li className="text-white">{siteConfig.name}</li>
+              <li className="text-white/90">
+                <span className="text-brand-blu">Sede di Milano</span> – {milano.indirizzo}
+              </li>
+              <li className="text-white/90">
+                <span className="text-brand-blu">Sede di {paola.citta}</span> – {paola.indirizzo}
+              </li>
+              <li>
+                <span className="text-brand-blu">{siteConfig.segreteria.label}:</span>{" "}
+                <a href={siteConfig.segreteria.href} className={valueLink}>{siteConfig.segreteria.numero}</a>
+              </li>
+              <li>
+                <span className="text-brand-blu">{siteConfig.whatsapp.label}:</span>{" "}
+                <a href={siteConfig.whatsapp.href} target="_blank" rel="noopener noreferrer" className={valueLink}>
+                  {siteConfig.whatsapp.numero}
+                </a>
+              </li>
+              <li>
+                <span className="text-brand-blu">Email:</span>{" "}
+                <a href={`mailto:${siteConfig.email}`} className={`${valueLink} break-all`}>{siteConfig.email}</a>
+              </li>
+            </ul>
           </div>
 
-          {/* Colonna 3: orari */}
-          <div>
-            <p className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/40 mb-4">
-              Orari
-            </p>
-            <div className="space-y-2">
-              {siteConfig.orari.map((slot) => (
-                <div
-                  key={slot.giorno}
-                  className="flex justify-center md:justify-between items-center gap-4 font-sans text-sm"
-                >
-                  <span className="text-white/45">{slot.giorno}</span>
-                  <span className="text-white/70">{slot.ore}</span>
-                </div>
+          <nav aria-label="Link del footer">
+            <p className={labelClass}>Il sito</p>
+            <ul className="space-y-3" role="list">
+              {siteConfig.navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="footer-link text-[14px] text-white/90 hover:text-brand-blu">
+                    {link.label}
+                  </Link>
+                </li>
               ))}
-            </div>
-          </div>
-
+            </ul>
+          </nav>
         </div>
 
-        {/* Separatore */}
-        <div className="h-px bg-white/10 mb-6" />
+        <div className="h-px bg-white/10 mt-14 mb-6" />
 
-        {/* Bottom */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="font-sans text-xs text-white/25">
-            © {year} · {siteConfig.name}
-            {siteConfig.piva && siteConfig.piva !== "—" && ` · P.IVA ${siteConfig.piva}`}
-          </p>
-          <div className="flex items-center gap-5">
-            <Link
-              href="/privacy"
-              className="font-sans text-xs text-white/25 hover:text-white/55 transition-colors duration-300"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/cookie"
-              className="font-sans text-xs text-white/25 hover:text-white/55 transition-colors duration-300"
-            >
-              Cookie Policy
-            </Link>
-          </div>
-        </div>
-
+        <p className="text-[12px] text-white/60 text-center md:text-left">
+          © {year} · {siteConfig.name} · {siteConfig.qualifica}
+        </p>
       </div>
     </footer>
   )

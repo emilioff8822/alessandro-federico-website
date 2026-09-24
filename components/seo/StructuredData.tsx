@@ -1,153 +1,76 @@
 import { JsonLd } from "./JsonLd"
 import { siteConfig } from "@/data/siteConfig"
+import { macroAree } from "@/data/servizi"
 
 const BASE = siteConfig.url
+const telefono = "+393938736690"
 
 const individualPhysician = {
   "@context": "https://schema.org",
   "@type": "IndividualPhysician",
   "@id": `${BASE}/#doctor`,
-  name: "Dr. Alessandro Federico",
-  givenName: "Alessandro",
+  name: siteConfig.name,
+  givenName: "Alessandro Paolo",
   familyName: "Federico",
-  honorificPrefix: "Dr.",
-  jobTitle: "Medico Specialista in Dermatologia e Venereologia",
+  honorificPrefix: "Dott.",
+  jobTitle: siteConfig.qualifica,
   description:
-    "Dermatologo e medico estetico a Milano. Specializzato in dermatologia clinica, tricologia, dermatoscopia, medicina estetica e trattamenti anti-aging.",
+    "Dermatologo a Milano e Paola (CS). Specialista in Dermatologia e Venereologia, Tricologia e Medicina Estetica.",
   url: `${BASE}/chi-sono`,
   image: `${BASE}/images/dr-alessandro-federico-dermatologo-milano.png`,
-  email: "alfederico89@gmail.com",
-  medicalSpecialty: [
-    { "@type": "MedicalSpecialty", name: "Dermatology" },
-    { "@type": "MedicalSpecialty", name: "PlasticSurgery" },
-  ],
-  knowsAbout: [
-    "Dermatologia Clinica",
-    "Tricologia",
-    "Dermatoscopia",
-    "Malattie Sessualmente Trasmesse",
-    "Terapia Fisica Dermatologica",
-    "Medicina Estetica",
-    "Filler Acido Ialuronico",
-    "Tossina Botulinica",
-    "Peeling Chimico",
-    "Biolifting",
-    "Mesoterapia Lipolitica",
-    "Mesoterapia Tricologica",
-  ],
-  availableService: [
-    {
-      "@type": "MedicalTherapy",
-      name: "Dermatologia Clinica",
-      description:
-        "Diagnosi e trattamento delle patologie cutanee",
-    },
-    {
-      "@type": "MedicalTherapy",
-      name: "Medicina Estetica",
-      description:
-        "Trattamenti estetici non chirurgici per il ringiovanimento del viso e del corpo",
-    },
-    {
-      "@type": "DiagnosticProcedure",
-      name: "Dermatoscopia",
-      description:
-        "Esame non invasivo per la diagnosi precoce del melanoma e delle lesioni cutanee",
-    },
-    {
-      "@type": "MedicalTherapy",
-      name: "Tricologia",
-      description:
-        "Diagnosi e trattamento della caduta dei capelli e delle patologie del cuoio capelluto",
-    },
-    {
-      "@type": "MedicalTherapy",
-      name: "Filler Acido Ialuronico",
-      description:
-        "Trattamento iniettivo per il ripristino dei volumi del viso e la correzione delle rughe",
-    },
-    {
-      "@type": "MedicalTherapy",
-      name: "Tossina Botulinica",
-      description:
-        "Trattamento per le rughe dinamiche della fronte, glabella e contorno occhi",
-    },
-    {
-      "@type": "MedicalTherapy",
-      name: "Peeling Chimico",
-      description:
-        "Esfoliazione controllata per il ringiovanimento e la luminosità della pelle",
-    },
-  ],
-  practicesAt: { "@id": `${BASE}/#office` },
-  sameAs: [
-    "https://www.idoctors.it/medico/16985/0",
-    "https://www.santagostino.it/it/persone/alessandro-federico",
-    "https://www.cupsolidale.it/medico/e53e02e3d33ac1ab1a73528e01addc47",
-  ],
+  email: siteConfig.email,
+  telephone: telefono,
+  medicalSpecialty: [{ "@type": "MedicalSpecialty", name: "Dermatology" }],
+  knowsAbout: macroAree.flatMap((a) => [
+    a.titolo,
+    ...a.voci.flatMap((v) => (v.elenco ? v.elenco.map((e) => e.label) : [v.titolo])),
+  ]),
+  availableService: macroAree.map((a) => ({
+    "@type": "MedicalTherapy",
+    name: a.titolo,
+    description: a.descrizione,
+  })),
+  worksFor: siteConfig.sedi.map((s) => ({ "@id": `${BASE}/#sede-${s.id}` })),
 }
 
-const physiciansOffice = {
+const sedi = siteConfig.sedi.map((s) => ({
   "@context": "https://schema.org",
   "@type": "PhysiciansOffice",
-  "@id": `${BASE}/#office`,
-  name: "Studio Dermatologico Dr. Alessandro Federico",
-  description:
-    "Studio di dermatologia e medicina estetica a Milano. Visite dermatologiche, dermatoscopia, tricologia, filler, botox e peeling.",
-  url: BASE,
-  telephone: siteConfig.phonePlain,
-  email: "alfederico89@gmail.com",
+  "@id": `${BASE}/#sede-${s.id}`,
+  name: `${siteConfig.name} — Sede di ${s.citta}`,
+  url: `${BASE}/prenota`,
+  telephone: telefono,
+  email: siteConfig.email,
+  image: `${BASE}/opengraph-image.png`,
   address: {
     "@type": "PostalAddress",
-    streetAddress: siteConfig.address,
-    addressLocality: "Milano",
-    addressRegion: "MI",
-    postalCode: "20100",
+    streetAddress: s.indirizzo,
+    addressLocality: s.citta.replace(" (CS)", ""),
+    addressRegion: s.provincia,
+    postalCode: s.cap,
     addressCountry: "IT",
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 45.4642,
-    longitude: 9.19,
-  },
-  areaServed: [
-    { "@type": "City", name: "Milano" },
-    { "@type": "AdministrativeArea", name: "Provincia di Milano" },
-    { "@type": "AdministrativeArea", name: "Lombardia" },
-  ],
   medicalSpecialty: ["Dermatology"],
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "19:00",
-    },
-  ],
-  priceRange: "$$",
-  currenciesAccepted: "EUR",
-  paymentAccepted: "Contanti, Carta di Credito, Bonifico",
-  image: `${BASE}/images/dr-alessandro-federico-dermatologo-milano.png`,
-  member: { "@id": `${BASE}/#doctor` },
-}
+  hasMap: `https://www.google.com/maps?q=${encodeURIComponent(s.mapsQuery)}`,
+  employee: { "@id": `${BASE}/#doctor` },
+}))
 
 const webSite = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${BASE}/#website`,
-  name: "Dr. Alessandro Federico — Dermatologo Milano",
+  name: `${siteConfig.name} — Dermatologo`,
   url: BASE,
-  description:
-    "Sito ufficiale del Dr. Alessandro Federico, dermatologo e medico estetico a Milano.",
+  description: "Sito ufficiale del Dott. Alessandro Federico, dermatologo a Milano e Paola (CS).",
   inLanguage: "it-IT",
-  publisher: { "@id": `${BASE}/#office` },
+  publisher: { "@id": `${BASE}/#doctor` },
 }
 
 export default function StructuredData() {
   return (
     <>
       <JsonLd data={individualPhysician} />
-      <JsonLd data={physiciansOffice} />
+      {sedi.map((s) => <JsonLd key={s["@id"]} data={s} />)}
       <JsonLd data={webSite} />
     </>
   )

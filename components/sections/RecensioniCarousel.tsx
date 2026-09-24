@@ -5,13 +5,7 @@ import { Star, Quote } from "lucide-react"
 import { testimonianze } from "@/data/testimonianze"
 import FadeIn from "@/components/ui/FadeIn"
 
-// Sfondi alternati coerenti col brand
-const cardBg = [
-  { bg: "#FFFFFF", border: "rgba(77,154,173,0.12)", accent: "#4D9AAD" },
-  { bg: "#F5FAFB", border: "rgba(77,154,173,0.12)", accent: "#4D9AAD" },
-  { bg: "#ECF0F6", border: "rgba(91,126,174,0.12)", accent: "#5B7EAE" },
-  { bg: "#FFFFFF", border: "rgba(91,126,174,0.12)", accent: "#5B7EAE" },
-]
+const cardBg = ["bg-white", "bg-white/70"]
 
 const AUTO_INTERVAL = 5500
 
@@ -71,66 +65,35 @@ export default function RecensioniCarousel() {
         {/* Card */}
         <div
           key={current}
-          className="rounded-2xl px-8 py-10 md:px-14 md:py-14 transition-all duration-300 border"
-          style={{
-            background: theme.bg,
-            borderColor: theme.border,
-            boxShadow: "0 4px 40px rgba(17,24,39,0.06)",
-            animation: "fadeSlide 0.4s ease both",
-          }}
+          className={`rounded-2xl px-8 py-10 md:px-14 md:py-14 border border-brand-blu/40 shadow-[0_4px_40px_rgba(30,53,80,0.06)] ${theme}`}
+          style={{ animation: "fadeSlide 0.4s ease both" }}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          {/* Virgolette decorative */}
-          <div className="flex items-start gap-4 mb-6">
-            <div
-              className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center"
-              style={{
-                background: `linear-gradient(135deg, ${theme.accent}22, ${theme.accent}44)`,
-              }}
-            >
-              <Quote
-                strokeWidth={1.5}
-                className="w-4 h-4"
-                style={{ color: theme.accent }}
-              />
+          <div className="flex items-center gap-4 mb-6">
+            <div className="shrink-0 w-10 h-10 rounded-full bg-brand-blu text-blu-notte flex items-center justify-center">
+              <Quote strokeWidth={1.5} className="w-4 h-4" />
             </div>
-            <span
-              className="font-sans text-[9px] uppercase tracking-[0.2em] mt-3"
-              style={{ color: theme.accent }}
-            >
-              {t.trattamento}
-            </span>
+            <span className="eyebrow text-[10px] text-blu-scuro">{t.trattamento}</span>
           </div>
 
-          {/* Stelle */}
-          <div className="flex gap-1 mb-6">
+          <div className="flex gap-1 mb-6" aria-label={`${t.stelle} stelle su 5`}>
             {Array.from({ length: t.stelle }).map((_, i) => (
-              <Star
-                key={i}
-                className="w-4 h-4 fill-current"
-                style={{ color: theme.accent }}
-                strokeWidth={0}
-              />
+              <Star key={i} className="w-4 h-4 fill-current text-brand-blu" strokeWidth={0} />
             ))}
           </div>
 
-          {/* Testo */}
-          <p className="font-sans text-base md:text-lg text-text leading-[1.85] mb-8">
+          <p className="text-base md:text-lg text-grigio-testo leading-[1.85] mb-8">
             &ldquo;{t.testo}&rdquo;
           </p>
 
-          {/* Autore */}
           <div className="flex items-center gap-3">
-            <div
-              className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-medium shrink-0"
-              style={{ background: `linear-gradient(135deg, ${theme.accent}, ${theme.accent}bb)` }}
-            >
+            <div className="w-9 h-9 rounded-full bg-blu-scuro text-white flex items-center justify-center text-sm shrink-0">
               {t.nome.charAt(0)}
             </div>
             <div>
-              <p className="font-sans text-sm font-medium text-text">{t.nome}</p>
-              <p className="font-sans text-xs text-muted">{t.citta}</p>
+              <p className="text-sm text-blu-notte">{t.nome}</p>
+              <p className="text-xs text-grigio-testo">{t.citta}</p>
             </div>
           </div>
         </div>
@@ -145,15 +108,7 @@ export default function RecensioniCarousel() {
                 goTo(i)
                 resetInterval()
               }}
-              className="rounded-full transition-all duration-300"
-              style={{
-                width: i === current ? "24px" : "8px",
-                height: "8px",
-                background:
-                  i === current
-                    ? "linear-gradient(135deg, #4D9AAD, #62ADBE)"
-                    : "rgba(17,24,39,0.15)",
-              }}
+              className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-6 bg-blu-scuro" : "w-2 bg-blu-notte/15"}`}
             />
           ))}
         </div>
@@ -162,7 +117,7 @@ export default function RecensioniCarousel() {
         <button
           aria-label="Recensione precedente"
           onClick={() => { prev(); resetInterval() }}
-          className="hidden md:flex absolute -left-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-[rgba(17,24,39,0.1)] bg-white items-center justify-center text-muted hover:border-accent hover:text-accent transition-all duration-200"
+          className="hidden md:flex absolute -left-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-brand-blu bg-white items-center justify-center text-blu-notte hover:bg-blu-scuro hover:border-blu-scuro hover:text-white transition-all duration-200"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M10 12L6 8l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -171,7 +126,7 @@ export default function RecensioniCarousel() {
         <button
           aria-label="Prossima recensione"
           onClick={() => { next(); resetInterval() }}
-          className="hidden md:flex absolute -right-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-[rgba(17,24,39,0.1)] bg-white items-center justify-center text-muted hover:border-accent hover:text-accent transition-all duration-200"
+          className="hidden md:flex absolute -right-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-brand-blu bg-white items-center justify-center text-blu-notte hover:bg-blu-scuro hover:border-blu-scuro hover:text-white transition-all duration-200"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

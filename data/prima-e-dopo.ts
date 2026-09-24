@@ -1,4 +1,4 @@
-export type Categoria = "tutti" | "dermatologia" | "medicina-estetica"
+export type Categoria = "dermatologia" | "medicina-estetica" | "tricologia"
 
 export interface CasoPrimaEDopo {
   id: string
@@ -17,9 +17,9 @@ export const casiPrimaEDopo: CasoPrimaEDopo[] = [
   {
     id: "acne-cicatrici",
     titolo: "Cicatrici da acne",
-    trattamento: "PEELING + TERAPIA FISICA",
+    trattamento: "PEELING",
     categoria: "dermatologia",
-    descrizione: "Trattamento combinato per ridurre le cicatrici post-acneiche e uniformare la texture cutanea.",
+    descrizione: "Trattamento per ridurre le cicatrici post-acneiche e uniformare la texture cutanea.",
     prima: null,
     dopo: null,
   },
@@ -51,20 +51,20 @@ export const casiPrimaEDopo: CasoPrimaEDopo[] = [
     dopo: null,
   },
   {
-    id: "biolifting",
-    titolo: "Ricompattamento ovale",
-    trattamento: "BIOLIFTING",
+    id: "biorivitalizzazione",
+    titolo: "Luminosità e compattezza",
+    trattamento: "BIORIVITALIZZAZIONE",
     categoria: "medicina-estetica",
-    descrizione: "Trattamento per il rimodellamento e la ristrutturazione dei volumi facciali.",
+    descrizione: "Miglioramento di tono, compattezza e luminosità della pelle del viso.",
     prima: null,
     dopo: null,
   },
   {
     id: "alopecia",
     titolo: "Diradamento capelli",
-    trattamento: "MESOTERAPIA TRICOLOGICA",
-    categoria: "dermatologia",
-    descrizione: "Recupero della densità capillare con protocollo mesoterapico personalizzato.",
+    trattamento: "PROTOCOLLO TRICOLOGICO",
+    categoria: "tricologia",
+    descrizione: "Recupero della densità capillare con protocollo tricologico personalizzato.",
     prima: null,
     dopo: null,
   },
@@ -74,4 +74,5 @@ export const filtri: { label: string; value: Categoria | "tutti" }[] = [
   { label: "Tutti", value: "tutti" },
   { label: "Dermatologia", value: "dermatologia" },
   { label: "Medicina Estetica", value: "medicina-estetica" },
+  { label: "Tricologia", value: "tricologia" },
 ]

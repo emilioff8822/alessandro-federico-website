@@ -1,19 +1,19 @@
 import type { Metadata } from "next"
 import Hero from "@/components/sections/Hero"
-import Servizi from "@/components/sections/Servizi"
+import MacroAreeCards from "@/components/sections/MacroAreeCards"
 import CTASection from "@/components/sections/CTASection"
 import Divider from "@/components/ui/Divider"
 import PageTransition from "@/components/providers/PageTransition"
 
 export const metadata: Metadata = {
-  title: "Dr. Alessandro Federico | Dermatologo Milano — Medicina Estetica",
+  title: { absolute: "Dott. Alessandro Federico | Dermatologo a Milano e Paola — Tricologia e Medicina Estetica" },
   description:
-    "Dermatologo e medico estetico a Milano. Visita dermatologica, dermatoscopia, tricologia, filler, botox e peeling. Prenota una visita con il Dr. Federico.",
+    "Dermatologo a Milano e Paola (CS). Visita dermatologica, mappatura dei nei, tricologia, dermochirurgia e medicina estetica. Prenota una visita con il Dott. Federico.",
   alternates: { canonical: "https://www.alessandrofederico.it" },
   openGraph: {
-    title: "Dr. Alessandro Federico | Dermatologo e Medico Estetico Milano",
+    title: "Dott. Alessandro Federico | Dermatologia, Tricologia e Medicina Estetica",
     description:
-      "Specialista in dermatologia e medicina estetica a Milano. Prenota una visita.",
+      "Dermatologo a Milano e Paola (CS). Dermatologia clinica, tricologia, dermochirurgia e medicina estetica.",
     url: "https://www.alessandrofederico.it",
   },
 }
@@ -24,8 +24,10 @@ export default function Home() {
       <main>
         <Hero />
         <Divider />
-        <Servizi />
-        <CTASection />
+        <MacroAreeCards />
+        <CTASection
+          secondario={{ text: "Chi sono", href: "/chi-sono" }}
+        />
       </main>
     </PageTransition>
   )

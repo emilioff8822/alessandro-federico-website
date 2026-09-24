@@ -15,7 +15,7 @@ export const testimonianze: Testimonianza[] = [
     trattamento: "DERMATOLOGIA CLINICA",
     stelle: 5,
     testo:
-      "Il Dr. Federico è stato in grado di risolvere un problema che avevo da anni e che altri specialisti non erano riusciti ad affrontare. Visita accurata, spiegazioni chiare, risultati concreti. La professionalità e l'attenzione umana fanno la differenza.",
+      "Il Dott. Federico è stato in grado di risolvere un problema che avevo da anni e che altri specialisti non erano riusciti ad affrontare. Visita accurata, spiegazioni chiare, risultati concreti. La professionalità e l'attenzione umana fanno la differenza.",
   },
   {
     id: 2,
@@ -39,10 +39,10 @@ export const testimonianze: Testimonianza[] = [
     id: 4,
     nome: "Luca B.",
     citta: "Torino",
-    trattamento: "DERMATOSCOPIA",
+    trattamento: "MAPPATURA DEI NEI",
     stelle: 5,
     testo:
-      "Visita dermatoscopica meticolosa, ogni neo mappato e spiegato. Ho finalmente dormito sonni tranquilli sapendo di essere in buone mani. Lo studio è accogliente e l'attesa è minima. Consiglio vivamente.",
+      "Mappatura dei nei meticolosa, ogni neo mappato e spiegato. Ho finalmente dormito sonni tranquilli sapendo di essere in buone mani. Lo studio è accogliente e l'attesa è minima. Consiglio vivamente.",
   },
   {
     id: 5,
@@ -60,24 +60,24 @@ export const testimonianze: Testimonianza[] = [
     trattamento: "PEELING",
     stelle: 5,
     testo:
-      "Ho fatto un ciclo di peeling per iperpigmentazione post-estiva. La pelle è tornata omogenea e luminosa. Il Dr. Federico mi ha seguito passo passo, con consigli post-trattamento dettagliati e sempre disponibile per qualsiasi dubbio.",
+      "Ho fatto un ciclo di peeling per iperpigmentazione post-estiva. La pelle è tornata omogenea e luminosa. Il Dott. Federico mi ha seguito passo passo, con consigli post-trattamento dettagliati e sempre disponibile per qualsiasi dubbio.",
   },
   {
     id: 7,
     nome: "Marco D.",
     citta: "Bari",
-    trattamento: "MALATTIE SESSUALMENTE TRASMESSE",
+    trattamento: "VENEREOLOGIA",
     stelle: 5,
     testo:
-      "Professionale, riservato e diretto. In un ambito delicato come questo, trovare un medico che metta a proprio agio e che garantisca massima discrezione è fondamentale. Il Dr. Federico risponde a tutti questi requisiti.",
+      "Professionale, riservato e diretto. In un ambito delicato come questo, trovare un medico che metta a proprio agio e che garantisca massima discrezione è fondamentale. Il Dott. Federico risponde a tutti questi requisiti.",
   },
   {
     id: 8,
     nome: "Elena C.",
     citta: "Genova",
-    trattamento: "MESOTERAPIA TRICOLOGICA",
+    trattamento: "TRICOLOGIA",
     stelle: 5,
     testo:
-      "Dopo il terzo ciclo di mesoterapia i risultati sono evidenti: la densità è migliorata e il cuoio capelluto è più sano. Il protocollo è stato costruito su misura per me. Consigliatissimo a chi soffre di diradamento.",
+      "Dopo il terzo ciclo di trattamento i risultati sono evidenti: la densità è migliorata e il cuoio capelluto è più sano. Il protocollo è stato costruito su misura per me. Consigliatissimo a chi soffre di diradamento.",
   },
 ]

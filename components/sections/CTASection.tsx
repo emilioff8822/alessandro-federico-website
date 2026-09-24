@@ -1,85 +1,51 @@
-"use client"
-
-import { useRef } from "react"
 import Image from "next/image"
-import { motion, useScroll, useTransform } from "framer-motion"
 import FadeIn from "@/components/ui/FadeIn"
 import CTAButton from "@/components/ui/CTAButton"
-import TextReveal from "@/components/ui/TextReveal"
 
-export default function CTASection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  })
+type Link = { text: string; href: string }
 
-  const logoY = useTransform(scrollYProgress, [0, 1], [20, -20])
+type Props = {
+  eyebrow?: string
+  titolo?: string
+  testo?: string
+  primario?: Link
+  secondario?: Link
+}
 
+export default function CTASection({
+  eyebrow = "Inizia il tuo percorso",
+  titolo = "Prenota la tua visita.",
+  testo = "Ogni trattamento inizia con un'analisi accurata. Contatta lo studio per fissare una prima consulenza.",
+  primario = { text: "Prenota una visita", href: "/prenota" },
+  secondario,
+}: Props) {
   return (
-    <section
-      ref={sectionRef}
-      className="relative py-24 md:py-32 overflow-hidden"
-      style={{ background: "linear-gradient(135deg, #4A7F93, #5A93A6)" }}
-      aria-label="Prenota una visita"
-    >
-      {/* Logo watermark — grande, centrato verticalmente, tagliato a destra */}
-      <motion.div
-        style={{ y: logoY }}
-        className="absolute -right-12 top-1/2 -translate-y-1/2 w-[350px] h-[350px] md:w-[500px] md:h-[500px] pointer-events-none select-none"
+    <section className="relative bg-blu-scuro py-20 md:py-28 overflow-hidden" aria-label={titolo}>
+      <Image
+        src="/images/brand/simbolo-blu.png"
+        alt=""
+        width={700}
+        height={907}
         aria-hidden="true"
-      >
-        <Image
-          src="/images/logo-dryouth-symbol.png"
-          alt=""
-          width={500}
-          height={500}
-          className="object-contain brightness-0 invert opacity-[0.07]"
-        />
-      </motion.div>
-
-      {/* Logo completo DR YOUTH — a sinistra, non sovrappone il testo centrato */}
-      <div
-        className="absolute -left-16 bottom-6 w-[200px] h-[200px] md:w-[280px] md:h-[280px] pointer-events-none select-none"
+        className="absolute -right-10 top-1/2 -translate-y-1/2 w-[240px] md:w-[360px] h-auto opacity-30 pointer-events-none select-none"
+      />
+      <Image
+        src="/images/brand/logo-bianco.png"
+        alt=""
+        width={700}
+        height={1005}
         aria-hidden="true"
-      >
-        <Image
-          src="/images/logo-dryouth-transparent.png"
-          alt=""
-          width={280}
-          height={280}
-          className="object-contain brightness-0 invert opacity-[0.045]"
-        />
-      </div>
-
-      {/* Punto luce centrale */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.06), transparent 65%)" }}
-        aria-hidden="true"
+        className="hidden md:block absolute left-10 bottom-8 w-[120px] h-auto opacity-[0.08] pointer-events-none select-none"
       />
 
       <div className="relative z-10 max-w-2xl mx-auto px-5 md:px-10 text-center">
         <FadeIn>
-          <p className="font-sans text-[11px] uppercase tracking-[0.2em] text-white/50 mb-6">
-            Inizia il tuo percorso
-          </p>
-          <h2 className="font-heading text-4xl md:text-5xl text-white leading-[1.1] mb-6">
-            <TextReveal>Prenota la tua visita.</TextReveal>
-          </h2>
-        </FadeIn>
-
-        <FadeIn delay={0.15}>
-          <p className="font-sans text-base text-white/65 leading-[1.8] mb-10 max-w-md mx-auto">
-            Ogni trattamento inizia con un&apos;analisi accurata.
-            Contattaci per fissare una prima consulenza.
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={0.3}>
+          <p className="eyebrow text-[11px] text-white/85 mb-6">{eyebrow}</p>
+          <h2 className="font-heading text-3xl md:text-5xl text-white leading-[1.12] mb-6">{titolo}</h2>
+          <p className="text-base text-white/90 leading-[1.8] mb-10 max-w-md mx-auto">{testo}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <CTAButton text="Prenota ora" href="/prenota" inverted />
-            <CTAButton text="Contattaci" href="/contatti" inverted />
+            <CTAButton text={primario.text} href={primario.href} variant="light" />
+            {secondario && <CTAButton text={secondario.text} href={secondario.href} variant="inverted" />}
           </div>
         </FadeIn>
       </div>
