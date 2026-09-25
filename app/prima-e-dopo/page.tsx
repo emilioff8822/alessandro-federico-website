@@ -9,7 +9,7 @@ import CTASection from "@/components/sections/CTASection"
 export const metadata: Metadata = {
   title: "Prima e Dopo | Risultati dei trattamenti",
   description:
-    "I risultati dei trattamenti del Dott. Alessandro Federico in dermatologia, tricologia e medicina estetica. Fotografie prima e dopo pubblicate con il consenso dei pazienti.",
+    "Fotografie prima e dopo dei pazienti del Dott. Alessandro Federico: viso, capelli e cuoio capelluto, corpo. Pubblicate con il consenso dei pazienti.",
   alternates: { canonical: "https://www.alessandrofederico.it/prima-e-dopo" },
   openGraph: {
     title: "Prima e Dopo | Dott. Alessandro Federico",
@@ -24,7 +24,7 @@ export default function PrimaEDopoPage() {
       <main>
         <PageHero
           titolo="Prima e Dopo"
-          testo="Ogni risultato racconta un percorso. Le fotografie documentano i trattamenti effettuati in studio, con il consenso esplicito di ogni paziente."
+          testo="Ogni risultato racconta un percorso. Una selezione di fotografie prima e dopo, divise per zona: viso, capelli e cuoio capelluto, corpo."
           percorso={[{ label: "Prima e Dopo", href: "/prima-e-dopo" }]}
         />
 
@@ -43,11 +43,9 @@ export default function PrimaEDopoPage() {
               <div className="max-w-3xl">
                 <h2 className="font-heading text-2xl mb-3">Consenso e privacy</h2>
                 <p className="text-[15px] leading-[1.8]">
-                  Tutte le fotografie presenti in questa sezione sono state realizzate in
-                  studio e pubblicate con il consenso scritto dei pazienti. I volti possono
-                  essere parzialmente oscurati su richiesta. I risultati individuali possono
-                  variare in base alle caratteristiche della pelle, all&apos;età e alla
-                  risposta al trattamento.
+                  Le fotografie presenti in questa sezione sono pubblicate con il consenso dei
+                  pazienti. I risultati individuali possono variare in base alle
+                  caratteristiche di ciascuno, all&apos;età e alla risposta al trattamento.
                 </p>
               </div>
             </div>

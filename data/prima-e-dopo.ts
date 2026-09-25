@@ -1,78 +1,56 @@
-export type Categoria = "dermatologia" | "medicina-estetica" | "tricologia"
+export type Zona = "viso" | "capelli" | "corpo"
 
-export interface CasoPrimaEDopo {
+export interface FotoPrimaEDopo {
   id: string
-  titolo: string
-  trattamento: string
-  categoria: Categoria
-  descrizione: string
-  // Quando le foto reali saranno disponibili, popolare questi campi:
-  // prima: "/images/prima-e-dopo/caso-1-prima.jpg"
-  // dopo:  "/images/prima-e-dopo/caso-1-dopo.jpg"
-  prima: string | null
-  dopo: string | null
+  src: string
+  width: number
+  height: number
+  zona: Zona
 }
 
-export const casiPrimaEDopo: CasoPrimaEDopo[] = [
-  {
-    id: "acne-cicatrici",
-    titolo: "Cicatrici da acne",
-    trattamento: "PEELING",
-    categoria: "dermatologia",
-    descrizione: "Trattamento per ridurre le cicatrici post-acneiche e uniformare la texture cutanea.",
-    prima: null,
-    dopo: null,
-  },
-  {
-    id: "filler-labbra",
-    titolo: "Volumizzazione labbra",
-    trattamento: "FILLER",
-    categoria: "medicina-estetica",
-    descrizione: "Aumento del volume e ridefinizione del contorno labiale con acido ialuronico.",
-    prima: null,
-    dopo: null,
-  },
-  {
-    id: "rughe-fronte",
-    titolo: "Rughe della fronte",
-    trattamento: "TOSSINA BOTULINICA",
-    categoria: "medicina-estetica",
-    descrizione: "Distensione delle rughe d'espressione frontali con risultato naturale e non congelato.",
-    prima: null,
-    dopo: null,
-  },
-  {
-    id: "iperpigmentazione",
-    titolo: "Iperpigmentazione",
-    trattamento: "PEELING CHIMICO",
-    categoria: "dermatologia",
-    descrizione: "Riduzione di macchie e discromie cutanee con ciclo di peeling superficiale progressivo.",
-    prima: null,
-    dopo: null,
-  },
-  {
-    id: "biorivitalizzazione",
-    titolo: "Luminosità e compattezza",
-    trattamento: "BIORIVITALIZZAZIONE",
-    categoria: "medicina-estetica",
-    descrizione: "Miglioramento di tono, compattezza e luminosità della pelle del viso.",
-    prima: null,
-    dopo: null,
-  },
-  {
-    id: "alopecia",
-    titolo: "Diradamento capelli",
-    trattamento: "PROTOCOLLO TRICOLOGICO",
-    categoria: "tricologia",
-    descrizione: "Recupero della densità capillare con protocollo tricologico personalizzato.",
-    prima: null,
-    dopo: null,
-  },
+export const etichetteZona: Record<Zona, string> = {
+  viso: "Viso",
+  capelli: "Capelli e cuoio capelluto",
+  corpo: "Corpo",
+}
+
+// Ogni immagine è già composta (prima a sinistra o in alto, dopo a destra o in basso)
+// e contiene il logo: va mostrata intera, senza ritagli.
+export const fotoPrimaEDopo: FotoPrimaEDopo[] = [
+  { id: "viso-1", src: "/images/prima-e-dopo/viso-01.png", width: 576, height: 1024, zona: "viso" },
+  { id: "viso-2", src: "/images/prima-e-dopo/viso-02.png", width: 772, height: 1024, zona: "viso" },
+  { id: "viso-3", src: "/images/prima-e-dopo/viso-03.png", width: 839, height: 1024, zona: "viso" },
+  { id: "viso-4", src: "/images/prima-e-dopo/viso-04.png", width: 1024, height: 1024, zona: "viso" },
+  { id: "viso-5", src: "/images/prima-e-dopo/viso-05.png", width: 645, height: 1024, zona: "viso" },
+  { id: "viso-6", src: "/images/prima-e-dopo/viso-06.png", width: 576, height: 1024, zona: "viso" },
+  { id: "viso-7", src: "/images/prima-e-dopo/viso-07.png", width: 1024, height: 901, zona: "viso" },
+  { id: "viso-8", src: "/images/prima-e-dopo/viso-08.png", width: 1024, height: 1024, zona: "viso" },
+  { id: "viso-9", src: "/images/prima-e-dopo/viso-09.png", width: 950, height: 1024, zona: "viso" },
+  { id: "viso-10", src: "/images/prima-e-dopo/viso-10.jpg", width: 1024, height: 1024, zona: "viso" },
+  { id: "viso-11", src: "/images/prima-e-dopo/viso-11.jpg", width: 1024, height: 1024, zona: "viso" },
+  { id: "viso-12", src: "/images/prima-e-dopo/viso-12.jpg", width: 1024, height: 1024, zona: "viso" },
+  { id: "capelli-1", src: "/images/prima-e-dopo/capelli-01.png", width: 1024, height: 1024, zona: "capelli" },
+  { id: "capelli-2", src: "/images/prima-e-dopo/capelli-02.png", width: 1024, height: 1024, zona: "capelli" },
+  { id: "capelli-3", src: "/images/prima-e-dopo/capelli-03.jpg", width: 1024, height: 1024, zona: "capelli" },
+  { id: "capelli-4", src: "/images/prima-e-dopo/capelli-04.png", width: 1020, height: 1020, zona: "capelli" },
+  { id: "capelli-5", src: "/images/prima-e-dopo/capelli-05.png", width: 1024, height: 1024, zona: "capelli" },
+  { id: "capelli-6", src: "/images/prima-e-dopo/capelli-06.png", width: 1024, height: 679, zona: "capelli" },
+  { id: "capelli-7", src: "/images/prima-e-dopo/capelli-07.jpg", width: 1023, height: 1024, zona: "capelli" },
+  { id: "capelli-8", src: "/images/prima-e-dopo/capelli-08.jpg", width: 768, height: 1024, zona: "capelli" },
+  { id: "capelli-9", src: "/images/prima-e-dopo/capelli-09.png", width: 1024, height: 1024, zona: "capelli" },
+  { id: "capelli-10", src: "/images/prima-e-dopo/capelli-10.jpg", width: 1024, height: 1024, zona: "capelli" },
+  { id: "capelli-11", src: "/images/prima-e-dopo/capelli-11.jpg", width: 1014, height: 1024, zona: "capelli" },
+  { id: "capelli-12", src: "/images/prima-e-dopo/capelli-12.jpg", width: 1024, height: 1024, zona: "capelli" },
+  { id: "capelli-13", src: "/images/prima-e-dopo/capelli-13.png", width: 1024, height: 1024, zona: "capelli" },
+  { id: "capelli-14", src: "/images/prima-e-dopo/capelli-14.jpg", width: 1024, height: 1024, zona: "capelli" },
+  { id: "capelli-15", src: "/images/prima-e-dopo/capelli-15.jpg", width: 1024, height: 1024, zona: "capelli" },
+  { id: "capelli-16", src: "/images/prima-e-dopo/capelli-16.jpg", width: 1024, height: 1024, zona: "capelli" },
+  { id: "corpo-1", src: "/images/prima-e-dopo/corpo-01.png", width: 1024, height: 1024, zona: "corpo" },
 ]
 
-export const filtri: { label: string; value: Categoria | "tutti" }[] = [
+export const filtriZona: { label: string; value: Zona | "tutti" }[] = [
   { label: "Tutti", value: "tutti" },
-  { label: "Dermatologia", value: "dermatologia" },
-  { label: "Medicina Estetica", value: "medicina-estetica" },
-  { label: "Tricologia", value: "tricologia" },
+  { label: "Viso", value: "viso" },
+  { label: "Capelli e cuoio capelluto", value: "capelli" },
+  { label: "Corpo", value: "corpo" },
 ]
